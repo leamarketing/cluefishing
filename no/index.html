@@ -1,22 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cluefishing - spot the tell, disclose your own</title>
-<meta name="description" content="A field guide and shared notebook for spotting undisclosed AI content, disclosing your own work honestly, and following what AI is actually getting good at.">
-<script>
-(function(){
-  try{
-    if (localStorage.getItem('cf_lang_choice')) return;
-    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (lang.indexOf('no') === 0 || lang.indexOf('nb') === 0 || lang.indexOf('nn') === 0){
-      localStorage.setItem('cf_lang_choice','no');
-      location.replace('no/index.html');
-    }
-  }catch(e){}
-})();
-</script>
+<title>Cluefishing - avslør ubevisst AI-bruk, vær åpen om din egen</title>
+<meta name="description" content="En feltguide og delt notatbok for å oppdage AI-innhold som ikke er merket, være åpen om ditt eget arbeid, og følge ekte AI-nyheter hver uke.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -151,26 +139,26 @@
   <nav>
     <a class="brand" href="#top">CLUE<span class="dot">·</span>FISHING</a>
     <div class="navlinks">
-      <a href="#news">AI News</a>
-      <a href="#manifesto">Manifesto</a>
-      <a href="#guide">Field Guide</a>
-      <a href="#tacklebox">Tackle Box</a>
-      <a href="#log">The Log</a>
-      <a href="no/index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','en')}catch(e){}">NO</a>
+      <a href="#news">AI-nyheter</a>
+      <a href="#manifesto">Manifest</a>
+      <a href="#guide">Feltguide</a>
+      <a href="#tacklebox">Verktøykasse</a>
+      <a href="#log">Loggen</a>
+      <a href="../index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','en')}catch(e){}">EN</a>
     </div>
   </nav>
 
   <section class="hero" id="top">
-    <span class="eyebrow">Field notebook No. 001 - opened 14 Sep 2026</span>
+    <span class="eyebrow">Feltnotat nr. 001 - åpnet 14. sep 2026</span>
     <h1>Cluefishing</h1>
-    <p class="lede">AI is one of the best collaborators most of us have ever had. This is the site for using it out loud: noticing the tell when someone doesn't say so, and disclosing proudly when you do.</p>
+    <p class="lede">AI er blitt en av de beste samarbeidspartnerne de fleste av oss noen gang har hatt. Dette er stedet for å bruke det høyt: legge merke til tegnet når noen ikke sier ifra, og være stolt åpen når du gjør det selv.</p>
     <div class="ctarow">
-      <a class="btn primary" href="#news">See what AI is doing</a>
-      <a class="btn" href="#guide">Read the Field Guide</a>
-      <a class="btn" href="#tacklebox">Open the Tackle Box</a>
+      <a class="btn primary" href="#news">Se hva AI gjør nå</a>
+      <a class="btn" href="#guide">Les Feltguiden</a>
+      <a class="btn" href="#tacklebox">Åpne Verktøykassen</a>
     </div>
 
-    <svg class="hero-art" viewBox="0 0 420 200" role="img" aria-label="Two shapes, one warm and one teal, connected by a line and a small spark, representing a person and an AI collaborating">
+    <svg class="hero-art" viewBox="0 0 420 200" role="img" aria-label="To former, en varm og en blågrønn, koblet med en linje og en liten gnist, som viser et menneske og en AI som samarbeider">
       <circle cx="120" cy="110" r="62" fill="none" stroke="var(--brass)" stroke-width="3"/>
       <circle cx="120" cy="110" r="38" fill="var(--brass)" opacity="0.15"/>
       <circle cx="300" cy="90" r="62" fill="none" stroke="var(--teal)" stroke-width="3"/>
@@ -183,14 +171,14 @@
 
     <div class="compare">
       <div class="card">
-        <span class="tag ok">✓ Disclosed</span>
-        <p>"This cover image was generated with an AI image tool, then hand-edited in Photoshop for the final crop and colour."</p>
-        <div class="caption">Reader knows what they're looking at. Nothing to dig for.</div>
+        <span class="tag ok">✓ Åpent</span>
+        <p>"Dette forsidebildet ble generert med et AI-billedverktøy, og deretter håndredigert i Photoshop for beskjæring og farge."</p>
+        <div class="caption">Leseren vet hva de ser på. Ingenting å grave etter.</div>
       </div>
       <div class="card">
-        <span class="tag bad">⚑ Undisclosed</span>
-        <p>"Shot this myself over the weekend :-)" - no camera metadata, six-fingered hand in the background, posted as personal work.</p>
-        <div class="caption">This is the shape of a catch worth logging.</div>
+        <span class="tag bad">⚑ Skjult</span>
+        <p>"Tok dette bildet selv i helgen :-)" - ingen kamerametadata, og en hånd med seks fingre i bakgrunnen, lagt ut som eget arbeid.</p>
+        <div class="caption">Dette er nøyaktig typen fangst som er verdt å logge.</div>
       </div>
     </div>
   </section>
@@ -198,11 +186,11 @@
   <section id="news">
     <div class="section-head">
       <div>
-        <span class="eyebrow">AI News - updated weekly</span>
-        <h2 style="font-size:32px; margin-top:10px;">What AI is actually doing right now</h2>
-        <p class="lede" style="font-size:15.5px; max-width:60ch;">The tell we look for on this site only matters because the tool underneath is genuinely good. Here's some of what it's doing lately, worth disclosing proudly rather than hiding.</p>
+        <span class="eyebrow">AI-nyheter - oppdateres ukentlig</span>
+        <h2 style="font-size:32px; margin-top:10px;">Hva AI faktisk gjør akkurat nå</h2>
+        <p class="lede" style="font-size:15.5px; max-width:60ch;">Tegnet vi leter etter på denne siden betyr bare noe fordi verktøyet bak faktisk er godt. Her er noe av det som skjer nå, verdt å være stolt åpen om, ikke skjule.</p>
       </div>
-      <svg viewBox="0 0 56 56" role="img" aria-label="A rising arc, representing progress">
+      <svg viewBox="0 0 56 56" role="img" aria-label="En stigende bue, som symboliserer fremgang">
         <path d="M4 44 C 16 44, 20 20, 30 20 C 38 20, 40 12, 52 8" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round"/>
         <circle cx="52" cy="8" r="4" fill="var(--brass)"/>
       </svg>
@@ -210,57 +198,57 @@
 
     <div class="news-grid">
       <div class="news-item">
-        <h3>Verified math, automatically</h3>
-        <p>Anthropic says Claude translated an existing mathematical proof into Lean, producing a fully computer-checked result, automating a famously painstaking kind of verification work.</p>
-        <a class="source" href="https://llm-stats.com/ai-news" target="_blank" rel="noopener noreferrer">Source: llm-stats.com →</a>
+        <h3>Matematikk verifisert, automatisk</h3>
+        <p>Anthropic sier Claude oversatte et eksisterende matematisk bevis til Lean, og produserte et resultat som er fullstendig datamaskinverifisert, en automatisering av en beryktet tidkrevende type verifiseringsarbeid.</p>
+        <a class="source" href="https://llm-stats.com/ai-news" target="_blank" rel="noopener noreferrer">Kilde: llm-stats.com →</a>
       </div>
       <div class="news-item">
-        <h3>New antibiotics, designed not discovered</h3>
-        <p>MIT researchers used generative AI to design new antibiotic candidates that cured drug-resistant infections in mice, a step toward drugs the old trial-and-error process would take years to find.</p>
-        <a class="source" href="https://www.crescendo.ai/news/ai-in-healthcare-news" target="_blank" rel="noopener noreferrer">Source: crescendo.ai →</a>
+        <h3>Nye antibiotika, designet, ikke oppdaget</h3>
+        <p>MIT-forskere brukte generativ AI til å designe nye antibiotikakandidater som kurerte antibiotikaresistente infeksjoner i mus, et skritt mot medisiner den gamle prøve-og-feile-metoden ville brukt år på å finne.</p>
+        <a class="source" href="https://www.crescendo.ai/news/ai-in-healthcare-news" target="_blank" rel="noopener noreferrer">Kilde: crescendo.ai →</a>
       </div>
       <div class="news-item">
-        <h3>CRISPR experiments in months, not years</h3>
-        <p>Stanford researchers unveiled CRISPR-GPT, an AI copilot that helps design CRISPR experiments dramatically faster, aimed at getting therapies to patients sooner.</p>
-        <a class="source" href="https://www.crescendo.ai/news/ai-in-healthcare-news" target="_blank" rel="noopener noreferrer">Source: crescendo.ai →</a>
+        <h3>CRISPR-forsøk på måneder, ikke år</h3>
+        <p>Forskere ved Stanford lanserte CRISPR-GPT, en AI-kopilot som hjelper til med å designe CRISPR-forsøk dramatisk raskere, med mål om å få behandlinger til pasienter raskere.</p>
+        <a class="source" href="https://www.crescendo.ai/news/ai-in-healthcare-news" target="_blank" rel="noopener noreferrer">Kilde: crescendo.ai →</a>
       </div>
       <div class="news-item">
-        <h3>AI for the planet</h3>
-        <p>Google's Asia-Pacific accelerator put sixteen teams to work on environmental applications, from wildlife monitoring to measuring carbon, concrete field use rather than a demo.</p>
-        <a class="source" href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-10-2026/" target="_blank" rel="noopener noreferrer">Source: theneuron.ai →</a>
+        <h3>AI for planeten</h3>
+        <p>Googles Asia-Stillehavs-akselerator satte seksten team i sving med miljøapplikasjoner, fra overvåking av dyreliv til måling av karbon, konkret bruk i felt, ikke bare en demo.</p>
+        <a class="source" href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-10-2026/" target="_blank" rel="noopener noreferrer">Kilde: theneuron.ai →</a>
       </div>
     </div>
 
     <div class="news-foot">
-      <span>This edition: 14 September 2026</span>
-      <span><a href="news/index.html">Full weekly archive →</a></span>
+      <span>Denne utgaven: 14. september 2026</span>
+      <span><a href="news/index.html">Fullt ukentlig arkiv →</a></span>
     </div>
   </section>
 
   <section id="manifesto">
-    <span class="eyebrow">Manifesto</span>
-    <h2 style="font-size:32px; margin-top:10px;">Use the tool. Keep the credit honest.</h2>
+    <span class="eyebrow">Manifest</span>
+    <h2 style="font-size:32px; margin-top:10px;">Bruk verktøyet. Hold æren ærlig.</h2>
     <div class="manifesto">
-      <p>AI has quietly become one of the best collaborators most of us have ever had. It can help build something faster, translate an idea, clean up a draft, or generate a texture nobody had time to paint by hand. That's worth being glad about, not defensive about.</p>
-      <p>The tool was never the problem. It starts the moment a person lets someone else believe an idea, a voice, or a piece of work was entirely theirs when a machine carried real weight in it.</p>
-      <p>We heard that failure mode get a name in a recorded conversation about AI ethics: <strong>clawfishing</strong>, presenting an AI-made creation or template as your own without disclosure. It's a good word for a real problem, so we built the mirror image of it. <strong>Cluefishing</strong> is the practice of noticing the tell, and of disclosing your own work before anyone has to go looking for it.</p>
-      <p>The idea still has to come from a person. AI can carry it beautifully. It shouldn't get silent credit for originating it.</p>
+      <p>AI har stille og rolig blitt en av de beste samarbeidspartnerne de fleste av oss noen gang har hatt. Det kan hjelpe deg å bygge noe raskere, oversette en idé, rydde opp i et utkast, eller lage en tekstur ingen hadde tid til å male for hånd. Det er verdt å være glad for, ikke defensiv om.</p>
+      <p>Verktøyet var aldri problemet. Det starter i det øyeblikket noen lar andre tro at en idé, en stemme, eller et stykke arbeid var helt deres eget når en maskin faktisk bar mye av vekten.</p>
+      <p>Vi hørte denne feilen få et navn i en tatt opp samtale om AI-etikk: <strong>clawfishing</strong>, å presentere en AI-laget skapelse eller mal som din egen uten å si ifra. Det er et godt ord for et reelt problem, så vi bygde speilbildet av det. <strong>Cluefishing</strong> er praksisen med å legge merke til tegnet, og å være åpen om ditt eget arbeid før noen må lete etter det.</p>
+      <p>Ideen må fortsatt komme fra et menneske. AI kan bære den vakkert. Den skal ikke få stille ære for å ha skapt den.</p>
     </div>
-    <div class="signoff">- Geir Amdal, founder</div>
+    <div class="signoff">- Geir Amdal, grunnlegger</div>
 
     <div class="origin-note">
-      <span class="lbl">Source note</span>
-      <p>The word "clawfishing" comes from a taped interview about AI ethics on a channel that also covers psychic and future-timeline claims. We're borrowing one word from that conversation, not endorsing the channeling material around it. Treat that origin as a spoken quote from one source, not a verified fact.</p>
+      <span class="lbl">Kildenotat</span>
+      <p>Ordet "clawfishing" kommer fra et opptak av en samtale om AI-etikk på en kanal som også dekker synske og fremtidsreise-påstander. Vi låner ett ord fra den samtalen, vi går ikke god for kanaliseringsmaterialet rundt det. Behandle den opprinnelsen som et sitat fra én kilde, ikke som bekreftet fakta.</p>
     </div>
   </section>
 
   <section id="guide">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Field guide</span>
-        <h2 style="font-size:32px; margin-top:10px; margin-bottom:20px;">Three entries to start with</h2>
+        <span class="eyebrow">Feltguide</span>
+        <h2 style="font-size:32px; margin-top:10px; margin-bottom:20px;">Tre oppslag å starte med</h2>
       </div>
-      <svg viewBox="0 0 56 56" role="img" aria-label="A friendly magnifying glass">
+      <svg viewBox="0 0 56 56" role="img" aria-label="Et vennlig forstørrelsesglass">
         <circle cx="24" cy="24" r="15" fill="none" stroke="var(--teal)" stroke-width="3"/>
         <line x1="35" y1="35" x2="50" y2="50" stroke="var(--brass)" stroke-width="4" stroke-linecap="round"/>
         <circle cx="20" cy="20" r="4" fill="var(--teal)" opacity=".35"/>
@@ -268,97 +256,97 @@
     </div>
 
     <details class="entry" open>
-      <summary><span><span class="num">001</span> &nbsp; <h3 style="display:inline;">The Clawfishing Problem</h3></span><span class="plus">+</span></summary>
-      <div class="dek">What the word means, and why the mirror image needed a name too.</div>
+      <summary><span><span class="num">001</span> &nbsp; <h3 style="display:inline;">Clawfishing-problemet</h3></span><span class="plus">+</span></summary>
+      <div class="dek">Hva ordet betyr, og hvorfor speilbildet trengte et eget navn.</div>
       <div class="body">
-        <p>Clawfishing is simple to define and easy to miss in the wild: an AI-generated creation, or something built from an AI template, presented as if it came entirely from the person posting it. No disclosure, no credit to the tool, no indication that a prompt did some of the work.</p>
-        <p>It's not the AI use that's the issue. It's the silence around it. A drawing, a paragraph, a song, or a product photo made with AI assistance is fine to share; it's the implied claim, <em>I made this myself, unaided</em>, that turns ordinary tool use into something closer to plagiarism.</p>
-        <p>Cluefishing starts on the other side of that line: reading for the tell, and building the habit of disclosing before anyone has to ask.</p>
+        <p>Clawfishing er enkelt å definere og lett å overse i praksis: en AI-generert skapelse, eller noe bygget fra en AI-mal, presentert som om det kom helt og holdent fra personen som la det ut. Ingen åpenhet, ingen ære til verktøyet, ingen antydning om at en prompt gjorde deler av jobben.</p>
+        <p>Det er ikke selve AI-bruken som er problemet. Det er stillheten rundt den. En tegning, et avsnitt, en sang, eller et produktbilde laget med AI-hjelp er helt greit å dele, det er den underforståtte påstanden, <em>jeg lagde dette helt selv, uten hjelp</em>, som gjør vanlig verktøybruk til noe som ligner plagiat.</p>
+        <p>Cluefishing starter på den andre siden av den linjen: å lese etter tegnet, og bygge vanen med å være åpen før noen må spørre.</p>
       </div>
     </details>
 
     <details class="entry">
-      <summary><span><span class="num">002</span> &nbsp; <h3 style="display:inline;">Provenance Is Not Paranoia</h3></span><span class="plus">+</span></summary>
-      <div class="dek">Metadata, content credentials, and why "where did this come from" is a normal question now.</div>
+      <summary><span><span class="num">002</span> &nbsp; <h3 style="display:inline;">Opprinnelse er ikke paranoia</h3></span><span class="plus">+</span></summary>
+      <div class="dek">Metadata, innholdsbekreftelse, og hvorfor "hvor kommer dette fra" er et normalt spørsmål nå.</div>
       <div class="body">
-        <p>Photographers have used EXIF metadata for decades to prove when and how an image was captured. The same idea is now being extended to AI content through standards like the C2PA content credentials effort, an industry coalition (Adobe, Microsoft, the BBC and others are publicly involved) building a way to attach a verifiable "how this was made" record to a file.</p>
-        <p>None of this requires trusting a single company's word. It just means provenance, the trail showing how something was made, is becoming a normal thing to check, the way you'd check a source on a news story. Asking for it isn't an accusation. It's due diligence.</p>
-        <p>Practically: keep your prompts, your drafts, and your source files. If someone asks how a piece was made, the honest answer should already be sitting in a folder somewhere.</p>
+        <p>Fotografer har brukt EXIF-metadata i tiår for å bevise når og hvordan et bilde ble tatt. Samme idé utvides nå til AI-innhold gjennom standarder som C2PA-innholdsbekreftelse, en bransjekoalisjon (Adobe, Microsoft, BBC og andre er offentlig involvert) som bygger en måte å feste en verifiserbar "hvordan dette ble laget"-record til en fil.</p>
+        <p>Ingenting av dette krever å stole på ett selskaps ord. Det betyr bare at opprinnelse, sporet som viser hvordan noe ble laget, blir en normal ting å sjekke, på samme måte som du ville sjekket en kilde i en nyhetssak. Å be om det er ikke en anklage. Det er aktsomhet.</p>
+        <p>I praksis: ta vare på promptene dine, utkastene, og kildefilene. Hvis noen spør hvordan et stykke ble laget, bør det ærlige svaret allerede ligge i en mappe et sted.</p>
       </div>
     </details>
 
     <details class="entry">
-      <summary><span><span class="num">003</span> &nbsp; <h3 style="display:inline;">Six Places the Tell Shows Up</h3></span><span class="plus">+</span></summary>
-      <div class="dek">What to actually look at before you file a report.</div>
+      <summary><span><span class="num">003</span> &nbsp; <h3 style="display:inline;">Seks steder tegnet dukker opp</h3></span><span class="plus">+</span></summary>
+      <div class="dek">Hva du faktisk bør se etter før du logger en rapport.</div>
       <div class="body">
-        <p><strong>1. Missing metadata.</strong> A photo with no camera information, or a document with no edit history, isn't proof of anything by itself, but it's worth a second look.</p>
-        <p><strong>2. Suspiciously even rhythm.</strong> Human writing wobbles: sentence length varies, tangents creep in. Text that marches at the same pace for paragraphs can be a sign, not a certainty.</p>
-        <p><strong>3. Stock transitions.</strong> Phrases that show up in almost every AI-drafted piece, moreover, it's important to note, in today's fast-paced world, aren't wrong on their own, but three of them in one paragraph is a pattern.</p>
-        <p><strong>4. Confident errors.</strong> Clean grammar paired with a factual mistake a knowledgeable person wouldn't make is a classic tell.</p>
-        <p><strong>5. Image artifacts.</strong> Garbled text in the background, extra or fused fingers, jewellery that doesn't quite close, lighting that doesn't agree with itself.</p>
-        <p><strong>6. No visible process.</strong> A finished piece with zero sketches, drafts, outtakes, or revision history behind it, where the creator's usual work does show that trail.</p>
-        <p>One of these is a maybe. Two or three together are worth logging in the field notebook below.</p>
+        <p><strong>1. Manglende metadata.</strong> Et bilde uten kamerainformasjon, eller et dokument uten redigeringshistorikk, er ikke bevis på noe i seg selv, men verdt et ekstra blikk.</p>
+        <p><strong>2. Mistenkelig jevn rytme.</strong> Menneskelig skriving vakler: setningslengden varierer, sidespor snik seg inn. Tekst som marsjerer i samme tempo gjennom avsnitt kan være et tegn, ikke en sikkerhet.</p>
+        <p><strong>3. Standard overgangsfraser.</strong> Fraser som dukker opp i nesten alt AI-utkast, dessuten, det er viktig å merke seg, i dagens hurtige verden, er ikke gale i seg selv, men tre av dem i samme avsnitt er et mønster.</p>
+        <p><strong>4. Selvsikre feil.</strong> Ren grammatikk kombinert med en faktafeil en kunnskapsrik person ikke ville gjort er et klassisk tegn.</p>
+        <p><strong>5. Bildeartefakter.</strong> Utydelig tekst i bakgrunnen, ekstra eller sammensmeltede fingre, smykker som ikke helt lukker seg, lys som ikke stemmer med seg selv.</p>
+        <p><strong>6. Ingen synlig prosess.</strong> Et ferdig stykke uten skisser, utkast, kasserte forsøk, eller redigeringshistorikk, der skaperens vanlige arbeid pleier å vise akkurat det sporet.</p>
+        <p>Én av disse er kanskje. To eller tre sammen er verdt å logge i feltnotatboken under.</p>
       </div>
     </details>
   </section>
 
   <section id="tacklebox">
-    <span class="eyebrow">Tackle box</span>
-    <h2 style="font-size:32px; margin-top:10px;">Disclosure checklist</h2>
-    <p class="lede" style="font-size:15.5px;">Run your own work through this before you publish. Answers stay in your browser only.</p>
+    <span class="eyebrow">Verktøykasse</span>
+    <h2 style="font-size:32px; margin-top:10px;">Sjekkliste for åpenhet</h2>
+    <p class="lede" style="font-size:15.5px;">Kjør ditt eget arbeid gjennom denne før du publiserer. Svarene blir liggende kun i din nettleser.</p>
 
     <div class="checklist" id="checklist"></div>
     <div class="score" id="score"></div>
   </section>
 
   <section id="log">
-    <span class="eyebrow">The log</span>
-    <h2 style="font-size:32px; margin-top:10px;">Shared field notebook</h2>
-    <span class="status-badge" style="margin-top:14px;">● Coming soon</span>
-    <p class="lede" style="font-size:15.5px;">Spotted an undisclosed tell somewhere public? Soon you'll be able to log it here for others to see. The form below is a preview, it isn't connected to anything yet, we want a small moderation layer in place first so this stays a shared notebook and never a way to name people without cause.</p>
+    <span class="eyebrow">Loggen</span>
+    <h2 style="font-size:32px; margin-top:10px;">Delt feltnotatbok</h2>
+    <span class="status-badge" style="margin-top:14px;">● Kommer snart</span>
+    <p class="lede" style="font-size:15.5px;">Har du oppdaget et umerket tegn et sted offentlig? Snart kan du logge det her, for andre å se. Skjemaet under er en forhåndsvisning, det er ikke koblet til noe ennå, vi vil ha et lite moderasjonslag på plass først, slik at dette forblir en delt notatbok og aldri en måte å navngi folk uten grunn.</p>
 
     <form class="logform" id="logform">
       <div>
-        <label for="f-what">What you found</label>
-        <input id="f-what" maxlength="120" placeholder="e.g. product photo on a marketplace listing" disabled>
+        <label for="f-what">Hva du fant</label>
+        <input id="f-what" maxlength="120" placeholder="f.eks. produktbilde i en markedsplass-annonse" disabled>
       </div>
       <div class="row2">
         <div>
-          <label for="f-url">Link (optional)</label>
+          <label for="f-url">Lenke (valgfritt)</label>
           <input id="f-url" maxlength="300" placeholder="https://…" disabled>
         </div>
         <div>
-          <label for="f-handle">Your handle (optional)</label>
-          <input id="f-handle" maxlength="60" placeholder="Anonymous angler" disabled>
+          <label for="f-handle">Ditt kallenavn (valgfritt)</label>
+          <input id="f-handle" maxlength="60" placeholder="Anonym fisker" disabled>
         </div>
       </div>
       <div>
-        <label for="f-tell">What tipped you off</label>
-        <textarea id="f-tell" maxlength="500" placeholder="Describe the pattern, not the person…" disabled></textarea>
+        <label for="f-tell">Hva tippet deg</label>
+        <textarea id="f-tell" maxlength="500" placeholder="Beskriv mønsteret, ikke personen…" disabled></textarea>
       </div>
       <div>
-        <button class="btn primary" type="submit" disabled>Log it (coming soon)</button>
+        <button class="btn primary" type="submit" disabled>Logg det (kommer snart)</button>
         <span class="formmsg info" id="formmsg"></span>
       </div>
-      <p class="guardrail">When this goes live: describe patterns, not people. No names, no doxxing, no links to private accounts.</p>
+      <p class="guardrail">Når dette blir live: beskriv mønstre, ikke personer. Ingen navn, ingen utlevering av privatliv, ingen lenker til private kontoer.</p>
     </form>
 
     <div class="loglist" id="loglist">
       <div class="logentry">
-        <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>Freelance listing profile photo</h4>
-        <p>No EXIF data, and the ear on the left side doesn't match the one on the right. Portfolio has no other shots in a matching style.</p>
+        <div class="ts"><span>EKSEMPEL</span><span>eksempel</span></div>
+        <h4>Frilans-oppdrag profilbilde</h4>
+        <p>Ingen EXIF-data, og øret på venstre side matcher ikke det på høyre. Porteføljen har ingen andre bilder i samme stil.</p>
       </div>
       <div class="logentry">
-        <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>"Handwritten" newsletter intro</h4>
-        <p>Every paragraph opens with a personal anecdote followed by "but here's the thing", same rhythm four issues in a row, no typos, ever.</p>
+        <div class="ts"><span>EKSEMPEL</span><span>eksempel</span></div>
+        <h4>"Håndskrevet" nyhetsbrev-intro</h4>
+        <p>Hvert avsnitt åpner med en personlig anekdote etterfulgt av "men her er greia", samme rytme fire utgaver på rad, aldri en skrivefeil.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="mono">CLUEFISHING - a field guide for disclosure, started 2026. Read the tell, log the pattern, credit the tool.</div>
+    <div class="mono">CLUEFISHING - en feltguide for åpenhet, startet 2026. Les tegnet, logg mønsteret, krediter verktøyet.</div>
   </footer>
 
 </div>
@@ -366,12 +354,12 @@
 <script>
 (function(){
   var items = [
-    {id:"c1", code:"01", label:"Every AI-generated or AI-modified image, video, or audio segment is labelled as such."},
-    {id:"c2", code:"02", label:"I disclosed which parts of the writing were drafted or rewritten by AI."},
-    {id:"c3", code:"03", label:"I kept my prompts and source material somewhere I could show if asked."},
-    {id:"c4", code:"04", label:"I didn't present an AI's factual claim as something I personally verified."},
-    {id:"c5", code:"05", label:"I credited the tool by name, not just \"with the help of technology.\""},
-    {id:"c6", code:"06", label:"If someone asked me directly how this was made, my answer wouldn't change."}
+    {id:"c1", code:"01", label:"Hvert AI-generert eller AI-endret bilde, video, eller lydsegment er merket som det."},
+    {id:"c2", code:"02", label:"Jeg har vært åpen om hvilke deler av teksten som ble utkastet eller omskrevet av AI."},
+    {id:"c3", code:"03", label:"Jeg har tatt vare på promptene og kildematerialet et sted jeg kan vise fram hvis noen spør."},
+    {id:"c4", code:"04", label:"Jeg har ikke presentert en AI-påstand som faktum jeg selv har verifisert."},
+    {id:"c5", code:"05", label:"Jeg har kreditert verktøyet ved navn, ikke bare \"med hjelp av teknologi.\""},
+    {id:"c6", code:"06", label:"Hvis noen spurte meg direkte hvordan dette ble laget, ville svaret mitt vært det samme."}
   ];
   var list = document.getElementById("checklist");
   var scoreBox = document.getElementById("score");
@@ -391,9 +379,9 @@
   function render(){
     var checked = items.filter(function(it){ return !!state[it.id]; }).length;
     var tier, tone;
-    if (checked <= 2) { tier = "Time to disclose more. Start with the biggest gap."; tone = "var(--rust)"; }
-    else if (checked <= 4) { tier = "Getting there. A few gaps left."; tone = "var(--brass)"; }
-    else { tier = "Clean catch. That reads as disclosed work."; tone = "var(--teal-strong)"; }
+    if (checked <= 2) { tier = "Tid for å være mer åpen. Start med det største hullet."; tone = "var(--rust)"; }
+    else if (checked <= 4) { tier = "På god vei. Noen hull igjen."; tone = "var(--brass)"; }
+    else { tier = "Ren fangst. Det leses som åpent arbeid."; tone = "var(--teal-strong)"; }
     scoreBox.innerHTML = '<span class="big" style="color:'+tone+'">'+checked+' / '+items.length+'</span>' + tier;
   }
   list.addEventListener("change", function(e){
