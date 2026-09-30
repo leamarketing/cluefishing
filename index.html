@@ -97,7 +97,8 @@
 
   .news-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px;}
   @media (max-width:640px){ .news-grid{grid-template-columns:1fr;} }
-  .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px;}
+  .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; overflow:hidden;}
+  .news-art{display:block; width:calc(100% + 36px); height:auto; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
   .news-item h3{font-size:19px; text-transform:none; letter-spacing:0; margin-bottom:8px;}
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
   .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
@@ -208,18 +209,22 @@
       </svg>
     </div>
 
+    <!-- Story items: <img class="news-art" src="news/images/YYYY-MM-DD-NN-name.svg" alt="…"> before the headline. See news/NEWS.md. -->
     <div class="news-grid">
       <div class="news-item">
+        <img class="news-art" src="news/images/2026-09-28-01-agents.svg" alt="Two outlined research papers joined by a dashed curve and a spark, with a small double helix between them." width="640" height="160">
         <h3>Two AI agents, each built from a different paper, found a genetic link neither study reported</h3>
         <p>Stanford Medicine's Paper2Agent turns a scientific paper, along with its code and data, into an interactive AI agent that can answer questions and rerun the original analysis. In a demonstration, an agent built from a genetic-variant-effect model talked to an agent built from an ADHD genetics study, and together they flagged a variant near the gene MPHOSPH9 as linked to ADHD risk, a connection nobody had reported before.</p>
         <a class="source" href="https://med.stanford.edu/news/all-news/2026/09/ai-agents-talk.html" target="_blank" rel="noopener noreferrer">Source: med.stanford.edu →</a>
       </div>
       <div class="news-item">
+        <img class="news-art" src="news/images/2026-09-28-02-molecules.svg" alt="A field of faint dots, ten of them filled in, beside a simple ring-shaped molecule." width="640" height="160">
         <h3>An AI model searched 1.7 million molecules and handed back ten working antibiotics</h3>
         <p>Stanford engineers trained an AI model to scour a library of 1.7 million synthetic polymers for candidates that kill bacteria the way natural peptides do, without giving microbes an easy path to resistance. Lab tests on E. coli confirmed all ten finalists worked, and one was especially effective against biofilms, the stubborn bacterial colonies that resist most conventional antibiotics.</p>
         <a class="source" href="https://news.stanford.edu/stories/2026/09/bacteria-killing-polymers-new-class-antibiotics" target="_blank" rel="noopener noreferrer">Source: news.stanford.edu →</a>
       </div>
       <div class="news-item">
+        <img class="news-art" src="news/images/2026-09-28-03-signals.svg" alt="Lines of text on a notebook page, one line marked, with a small note showing which marks were used." width="640" height="160">
         <h3>A tool that flags suicide risk in crisis texts, and shows its work</h3>
         <p>MIT McGovern Institute researchers built a lightweight, interpretable model that scans crisis-line conversations for language tied to 49 known risk factors, trained and validated on roughly 16,000 de-identified chats in a peer-reviewed study. It runs on an ordinary computer, keeps conversations private, and shows counselors exactly which words drove its estimate, though the team is clear it still needs further validation before clinical use.</p>
         <a class="source" href="https://news.mit.edu/2026/estimating-suicide-risk-from-text-0924" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
