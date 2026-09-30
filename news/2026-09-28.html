@@ -22,7 +22,7 @@
   h1{font-family:"Big Shoulders Display", sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(30px,6vw,48px); margin:10px 0 6px; text-wrap:balance;}
   .back{font-family:"IBM Plex Mono", monospace; font-size:12.5px; text-decoration:none;}
   .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; margin-top:16px; overflow:hidden;}
-  .news-art{display:block; width:calc(100% + 36px); height:auto; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
+  .news-art{display:block; width:calc(100% + 36px); height:auto; aspect-ratio:16/5; object-fit:cover; object-position:center; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
   .news-item h3{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:0 0 8px;}
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
   .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
@@ -35,27 +35,27 @@
   <span class="eyebrow" style="display:block; margin-top:18px;">AI News — weekly edition</span>
   <h1>28 September 2026</h1>
 
-  <!-- Story items: <img class="news-art" src="images/YYYY-MM-DD-NN-name.svg" alt="…"> before the headline. See NEWS.md. -->
+  <!-- Story items: <img class="news-art" src="images/YYYY-MM-DD-NN-name.webp" alt="…"> before the headline. See NEWS.md. -->
   <div class="news-item">
-    <img class="news-art" src="images/2026-09-28-01-agents.svg" alt="Two outlined research papers joined by a dashed curve and a spark, with a small double helix between them." width="640" height="160">
+    <img class="news-art" src="images/2026-09-28-01-agents.webp" alt="A glass DNA helix on a sunlit desk between two open research papers, with a laptop and a brass lamp behind them." width="1280" height="400">
     <h3>Two AI agents, each built from a different paper, found a genetic link neither study reported</h3>
     <p>Stanford Medicine's Paper2Agent turns a scientific paper, along with its code and data, into an interactive AI agent that can answer questions and rerun the original analysis. In a demonstration, researchers let an agent built from a genetic-variant-effect model talk to an agent built from an ADHD genetics study; together they flagged a variant near the gene MPHOSPH9 as linked to ADHD risk, a connection nobody had reported before.</p>
     <a class="source" href="https://med.stanford.edu/news/all-news/2026/09/ai-agents-talk.html" target="_blank" rel="noopener noreferrer">Source: med.stanford.edu →</a>
   </div>
   <div class="news-item">
-    <img class="news-art" src="images/2026-09-28-02-molecules.svg" alt="A field of faint dots, ten of them filled in, beside a simple ring-shaped molecule." width="640" height="160">
+    <img class="news-art" src="images/2026-09-28-02-molecules.webp" alt="Petri dishes of bacterial cultures on a lab bench beside a small ball-and-stick molecule model." width="1280" height="400">
     <h3>An AI model searched 1.7 million molecules and handed back ten working antibiotics</h3>
     <p>Stanford engineers trained an AI model to scour a library of 1.7 million synthetic polymers for candidates that kill bacteria the way natural peptides do, without giving microbes an easy path to resistance. Lab tests on E. coli confirmed all ten finalists worked, and one was especially effective against biofilms, the stubborn bacterial colonies that resist most conventional antibiotics.</p>
     <a class="source" href="https://news.stanford.edu/stories/2026/09/bacteria-killing-polymers-new-class-antibiotics" target="_blank" rel="noopener noreferrer">Source: news.stanford.edu →</a>
   </div>
   <div class="news-item">
-    <img class="news-art" src="images/2026-09-28-03-signals.svg" alt="Lines of text on a notebook page, one line marked, with a small note showing which marks were used." width="640" height="160">
+    <img class="news-art" src="images/2026-09-28-03-signals.webp" alt="A phone on a quiet desk showing a chat with a few lines highlighted, next to a notebook and a cup of tea." width="1280" height="400">
     <h3>A tool that flags suicide risk in crisis texts, and shows its work</h3>
     <p>MIT McGovern Institute researchers built a lightweight, interpretable model that scans crisis-line conversations for language tied to 49 known risk factors, trained and tested on roughly 16,000 de-identified chats and validated in a peer-reviewed study. Unlike a typical language model it runs on an ordinary computer, keeps conversations private, and shows counselors exactly which words drove its estimate; the team is clear it still needs further validation before clinical use.</p>
     <a class="source" href="https://news.mit.edu/2026/estimating-suicide-risk-from-text-0924" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
   </div>
 
-  <footer>Every edition is drafted from real, sourced reporting and reviewed by Geir before it replaces the live one. <a href="index.html">See all editions →</a></footer>
+  <footer>Every edition is drafted from real, sourced reporting and reviewed by Geir before it replaces the live one. Pictures: generated with an AI image tool, then cropped. <a href="index.html">See all editions →</a></footer>
 </div>
 </body>
 </html>
