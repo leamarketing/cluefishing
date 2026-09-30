@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" width="640" height="160">
+  <!-- 2026-09-28 item 2: a vast library searched, ten hits, one molecule. -->
+  <style>
+    .bg{fill:#E7EBE9}
+    .muted{fill:none;stroke:#4A5B62;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .dot{fill:none;stroke:#4A5B62;stroke-width:2}
+    .teal{fill:none;stroke:#0E7C7B;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .teal-fill{fill:#0E7C7B}
+    .brass{fill:none;stroke:#8F6423;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .brass-fill{fill:#8F6423}
+    .wash-teal{fill:#0E7C7B;opacity:.16}
+    @media (prefers-color-scheme: dark){
+      .bg{fill:#16262F}
+      .muted{stroke:#A9B8B6}
+      .dot{stroke:#A9B8B6}
+      .teal{stroke:#3BC0BB}
+      .teal-fill{fill:#3BC0BB}
+      .brass{stroke:#D9A054}
+      .brass-fill{fill:#D9A054}
+      .wash-teal{fill:#3BC0BB}
+    }
+  </style>
+  <rect width="640" height="160" class="bg"/>
+  <g class="dot">
+    <circle cx="48" cy="32" r="4"/><circle cx="92" cy="32" r="4"/><circle cx="136" cy="32" r="4"/><circle cx="224" cy="32" r="4"/><circle cx="312" cy="32" r="4"/>
+    <circle cx="92" cy="66" r="4"/><circle cx="136" cy="66" r="4"/><circle cx="180" cy="66" r="4"/><circle cx="268" cy="66" r="4"/><circle cx="312" cy="66" r="4"/>
+    <circle cx="48" cy="100" r="4"/><circle cx="92" cy="100" r="4"/><circle cx="180" cy="100" r="4"/><circle cx="224" cy="100" r="4"/><circle cx="312" cy="100" r="4"/>
+    <circle cx="48" cy="134" r="4"/><circle cx="136" cy="134" r="4"/><circle cx="224" cy="134" r="4"/><circle cx="268" cy="134" r="4"/>
+  </g>
+  <g class="teal-fill">
+    <circle cx="92" cy="32" r="6.5"/>
+    <circle cx="180" cy="32" r="6.5"/>
+    <circle cx="268" cy="32" r="6.5"/>
+    <circle cx="48" cy="66" r="6.5"/>
+    <circle cx="224" cy="66" r="6.5"/>
+    <circle cx="136" cy="100" r="6.5"/>
+    <circle cx="268" cy="100" r="6.5"/>
+    <circle cx="92" cy="134" r="6.5"/>
+    <circle cx="180" cy="134" r="6.5"/>
+    <circle cx="312" cy="134" r="6.5"/>
+  </g>
+  <path d="M348 28 V132" class="muted" stroke-dasharray="2 7"/>
+  <polygon points="508,36 546.5,58.2 546.5,102.8 508,125 469.5,102.8 469.5,58.2" class="wash-teal"/>
+  <polygon points="508,36 546.5,58.2 546.5,102.8 508,125 469.5,102.8 469.5,58.2" class="teal"/>
+  <path d="M546.5 58.2 L586 40" class="brass"/>
+  <path d="M586 40 L608 58" class="brass"/>
+  <g class="brass-fill">
+    <circle cx="508" cy="36" r="4.5"/>
+    <circle cx="546.5" cy="58.2" r="4.5"/>
+    <circle cx="546.5" cy="102.8" r="4.5"/>
+    <circle cx="508" cy="125" r="4.5"/>
+    <circle cx="469.5" cy="102.8" r="4.5"/>
+    <circle cx="469.5" cy="58.2" r="4.5"/>
+    <circle cx="586" cy="40" r="4.5"/>
+    <circle cx="608" cy="58" r="4.5"/>
+  </g>
+</svg>
