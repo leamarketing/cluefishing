@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cluefishing AI News - 05 October 2026</title>
+<meta name="description" content="Weekly edition of Cluefishing AI News: real, sourced developments in what AI is doing right now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#F2F4F3; --surface:#FFFFFF; --surface-2:#E7EBE9; --ink:#10202B; --ink-soft:#4A5B62; --teal:#0E7C7B; --teal-strong:#095F5E; --brass:#8F6423; --border:#D7DEDC; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0B1620; --surface:#10202B; --surface-2:#16262F; --ink:#EDF2F1; --ink-soft:#A9B8B6; --teal:#3BC0BB; --teal-strong:#63D4D0; --brass:#D9A054; --border:#22343C; }
+  }
+  :root[data-theme="dark"]{ --bg:#0B1620; --surface:#10202B; --surface-2:#16262F; --ink:#EDF2F1; --ink-soft:#A9B8B6; --teal:#3BC0BB; --teal-strong:#63D4D0; --brass:#D9A054; --border:#22343C; }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Source Serif 4", Georgia, serif; font-size:17px; line-height:1.6; padding-inline:20px;}
+  a{color:var(--teal-strong);}
+  .wrap{max-width:760px; margin-inline:auto; padding-block:48px;}
+  .eyebrow{font-family:"IBM Plex Mono", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
+  h1{font-family:"Big Shoulders Display", sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(30px,6vw,48px); margin:10px 0 6px; text-wrap:balance;}
+  .back{font-family:"IBM Plex Mono", monospace; font-size:12.5px; text-decoration:none;}
+  .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; margin-top:16px; overflow:hidden;}
+  .news-art{display:block; width:calc(100% + 36px); height:auto; aspect-ratio:16/5; object-fit:cover; object-position:center; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
+  .news-item h3{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:0 0 8px;}
+  .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
+  .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
+  footer{margin-top:40px; font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← CLUEFISHING</a>
+  <span class="eyebrow" style="display:block; margin-top:18px;">AI News — weekly edition</span>
+  <h1>05 October 2026</h1>
+
+  <div class="news-item">
+    <img class="news-art" src="images/2026-10-05-01-stratego.webp" alt="A Stratego board mid-game on a wooden table, red and blue pieces standing in formation, with a player's hands on one side and an open laptop across from them." width="1280" height="400">
+    <h3>An MIT-led AI beat the world's best Stratego player 15-1-4, trained for under $8,000</h3>
+    <p>Stratego hides so many possible piece arrangements from an opponent (more than 10^66 of them) that it has resisted the kind of superhuman AI results chess and Go saw years ago. Ataraxos, built by MIT researchers and collaborators, combines self-play reinforcement learning with a model that estimates an opponent's hidden pieces. In a peer-reviewed study published in Nature on 30 September, it beat the world's top-ranked human player 15 games to 1, with 4 draws, after training for about a week on 16 GPUs, roughly a 500th of the compute an earlier DeepMind system needed for a similar result.</p>
+    <a class="source" href="https://news.mit.edu/2026/game-playing-ai-stratego-new-champ-0930" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
+  </div>
+  <div class="news-item">
+    <img class="news-art" src="images/2026-10-05-02-synthid-bio.webp" alt="A lab bench with a monitor showing a folded protein ribbon, a physical protein model, vials, and gloved hands holding a pipette." width="1280" height="400">
+    <h3>Google DeepMind built a watermark for AI-designed proteins that doesn't change how they work</h3>
+    <p>AI protein-design tools can now produce sequences that don't closely resemble anything in nature, which makes it harder for biosecurity screening to compare a new design against known threats. SynthID Bio, described in a peer-reviewed Nature paper published 30 September, embeds an invisible, verifiable signature directly into a protein's amino acid sequence or predicted 3D structure. In lab tests across three different protein targets, watermarked designs matched the binding strength, hit rate, and natural diversity of unwatermarked ones, giving screening tools a provenance trail to check.</p>
+    <a class="source" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-bio/" target="_blank" rel="noopener noreferrer">Source: blog.google →</a>
+  </div>
+  <div class="news-item">
+    <img class="news-art" src="images/2026-10-05-03-instructmesh.webp" alt="A desktop 3D printer beside a monitor showing a wireframe mesh with one section highlighted, and a finished printed whistle on the bench." width="1280" height="400">
+    <h3>A new MIT tool lets anyone fix the parts of an AI-generated 3D model that don't actually work</h3>
+    <p>Generative AI can sketch what an object should look like without understanding how it needs to function, which often leaves a design too fragile, or outright broken, to 3D print. InstructMesh, built by researchers at MIT CSAIL, Google, and Northeastern and released 1 October, lets someone highlight the troublesome part of an AI-generated mesh, describe the problem in plain language, and get a local, printable fix, no 3D modeling experience required. The team used it to print working household objects, including a knee brace and a functional whistle.</p>
+    <a class="source" href="https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
+  </div>
+
+  <footer>Every edition is drafted from real, sourced reporting and reviewed by Geir before it replaces the live one. Pictures: generated with an AI image tool, then cropped. <a href="index.html">See all editions →</a></footer>
+</div>
+</body>
+</html>
