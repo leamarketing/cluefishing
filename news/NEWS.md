@@ -20,3 +20,16 @@ Put that line first inside `.news-item`, before the `<h3>`.
 | `no/news/YYYY-MM-DD.html` | `../../news/images/YYYY-MM-DD-01-short-name.webp` |
 
 Use the same file on the English and Norwegian pages. Write the alt text in the language of that page, describing what is visible in the photograph rather than repeating the headline. `.news-art` uses `aspect-ratio: 16 / 5` and `object-fit: cover`. Copy that rule from `news/2026-09-28.html` when a new edition file does not already have it.
+
+## Head tags and sitemap
+
+There is no page generator. The weekly edition change has to add the tags and the sitemap entries itself. Copy the `<head>` block from the newest pair, `news/2026-10-05.html` and `no/news/2026-10-05.html`, and keep these rules:
+
+- `<link rel="canonical">` is the absolute URL of that page (`https://cluefishing.com/news/YYYY-MM-DD.html` or `https://cluefishing.com/no/news/YYYY-MM-DD.html`).
+- Add `hreflang` alternates for `en`, `no`, and `x-default`. `x-default` points at the English URL. Point `en` and `no` only at pages that exist. The 15 September 2026 edition is English-only, so it has no `hreflang="no"` and no Norwegian sitemap URL.
+- Open Graph: `og:title`, `og:description`, `og:url`, `og:type` (`article`), `og:image`, `og:locale`, and `og:locale:alternate` when the other language exists. Twitter: `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image`.
+- `og:title` and `twitter:title` match `<title>`. The descriptions match `<meta name="description">`.
+- `og:image` and `twitter:image` are the absolute URL of that edition's lead image, `https://cluefishing.com/news/images/YYYY-MM-DD-01-short-name.webp` (the `-01-` file). If the edition has no story image, use `https://cluefishing.com/og.png`.
+- English `og:locale` is `en_GB` (alternate `nb_NO`). Norwegian `og:locale` is `nb_NO` (alternate `en_GB`). Keep `hreflang` as `en` and `no`, matching `<html lang>`.
+- Keep the favicon links (`/favicon.ico`, `/favicon.svg`, `/favicon-32.png`, `/apple-touch-icon.png`).
+- In `sitemap.xml`, add each language URL that exists, with `<lastmod>` set to the publication date (`YYYY-MM-DD`). Set `<lastmod>` on `https://cluefishing.com/`, `/no/`, `/news/`, and `/no/news/` to that same date. Do not list a URL that has no file.
