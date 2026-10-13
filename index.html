@@ -231,32 +231,32 @@
     <!-- Story items: <img class="news-art" src="news/images/YYYY-MM-DD-NN-name.webp" alt="…"> before the headline. See news/NEWS.md. -->
     <div class="news-grid">
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-05-01-stratego.webp" alt="A Stratego board mid-game on a wooden table, red and blue pieces standing in formation, with a player's hands on one side and an open laptop across from them." width="1280" height="400">
-        <h3>An MIT-led AI beat the world's best Stratego player 15-1-4, trained for under $8,000</h3>
-        <p>Stratego hides so many possible piece arrangements from an opponent (more than 10^66 of them) that it has resisted the kind of superhuman AI results chess and Go saw years ago. Ataraxos, built by MIT researchers and collaborators, combines self-play reinforcement learning with a model that estimates an opponent's hidden pieces. In a peer-reviewed study published in Nature on 30 September, it beat the world's top-ranked human player 15 games to 1, with 4 draws, after training for about a week on 16 GPUs, roughly a 500th of the compute an earlier DeepMind system needed for a similar result.</p>
-        <a class="source" href="https://news.mit.edu/2026/game-playing-ai-stratego-new-champ-0930" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
+        <img class="news-art" src="news/images/2026-10-12-01-ct-grounding.webp" alt="A radiology workstation monitor showing a grayscale chest CT scan with a teal highlight on one lung region, keyboard and mug on the desk." width="1280" height="400">
+        <h3>A Harvard-led dataset is teaching AI to point to exactly where it sees a problem on a CT scan</h3>
+        <p>Radiology AI can flag a finding on a scan without saying exactly where it sits, leaving a radiologist to hunt for it before trusting the call. ReXGroundingCT, released by Pranav Rajpurkar's lab at Harvard Medical School and published in NEJM AI, pairs 8,028 findings described in plain-language reports, across 3,142 chest CT scans, with their precise 3D location in the scan, the first public dataset to connect free-text radiology findings to pixel-level segmentation.</p>
+        <a class="source" href="https://ai.nejm.org/doi/full/10.1056/AIdbp2501220" target="_blank" rel="noopener noreferrer">Source: ai.nejm.org →</a>
       </div>
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-05-02-synthid-bio.webp" alt="A lab bench with a monitor showing a folded protein ribbon, a physical protein model, vials, and gloved hands holding a pipette." width="1280" height="400">
-        <h3>Google DeepMind built a watermark for AI-designed proteins that doesn't change how they work</h3>
-        <p>AI protein-design tools can now produce sequences that don't closely resemble anything in nature, which makes it harder for biosecurity screening to compare a new design against known threats. SynthID Bio, described in a peer-reviewed Nature paper published 30 September, embeds an invisible, verifiable signature directly into a protein's amino acid sequence or predicted 3D structure. In lab tests across three different protein targets, watermarked designs matched the binding strength, hit rate, and natural diversity of unwatermarked ones, giving screening tools a provenance trail to check.</p>
-        <a class="source" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-bio/" target="_blank" rel="noopener noreferrer">Source: blog.google →</a>
+        <img class="news-art" src="news/images/2026-10-12-02-deepfake-optics.webp" alt="A dark optics lab bench with a green-to-cyan laser beam passing through a framed optical modulator toward a camera sensor." width="1280" height="400">
+        <h3>A light-powered deepfake detector from UCLA screens videos in parallel, and catches almost 98% of them</h3>
+        <p>Most deepfake detectors check one video at a time, which doesn't scale to how much video is actually uploaded every day. A UCLA team built a hybrid system that uses a programmable light modulator to analyse several videos at once in a single optical pass, reaching 97.79% accuracy on a standard deepfake benchmark, and still catching about 94.8% of videos made with Google's newer Veo 3 generator that it had never seen in training.</p>
+        <a class="source" href="https://www.sciencedaily.com/releases/2026/09/260929053534.htm" target="_blank" rel="noopener noreferrer">Source: sciencedaily.com →</a>
       </div>
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-05-03-instructmesh.webp" alt="A desktop 3D printer beside a monitor showing a wireframe mesh with one section highlighted, and a finished printed whistle on the bench." width="1280" height="400">
-        <h3>A new MIT tool lets anyone fix the parts of an AI-generated 3D model that don't actually work</h3>
-        <p>Generative AI can sketch what an object should look like without understanding how it needs to function, which often leaves a design too fragile, or outright broken, to 3D print. InstructMesh, built by researchers at MIT CSAIL, Google, and Northeastern and released 1 October, lets someone highlight the troublesome part of an AI-generated mesh, describe the problem in plain language, and get a local, printable fix, no 3D modeling experience required. The team used it to print working household objects, including a knee brace and a functional whistle.</p>
-        <a class="source" href="https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
+        <img class="news-art" src="news/images/2026-10-12-03-byteification.webp" alt="An open laptop on a wooden desk showing code-like text on a dark screen, papers, coffee mug, and window light." width="1280" height="400">
+        <h3>Researchers found a cheap way to fix how AI reads text, without starting from scratch</h3>
+        <p>Most language models read text in chunks called tokens, part of why they can struggle to spell a word out loud or spot a single typo. A team from the Allen Institute for AI, Cambridge, and Edinburgh published a technique in Nature on 7 October that retrofits existing models, including OLMo, Qwen3, and Llama 3, into byte-level versions for under 1% of the cost of training one from scratch, while keeping most of the original model's ability intact.</p>
+        <a class="source" href="https://allenai.org/blog/bolmo-nature" target="_blank" rel="noopener noreferrer">Source: allenai.org →</a>
       </div>
       <div class="news-item">
         <h3>Last week's edition, still worth a read</h3>
-        <p>Two AI agents built from different research papers that found a genetic link neither study had reported, an AI model that searched 1.7 million molecules and handed back ten working antibiotics, and an interpretable model that flags suicide risk in crisis texts and shows its work, three more genuine steps forward from the 28 September edition.</p>
-        <a class="source" href="news/2026-09-28.html">See the 28 September edition →</a>
+        <p>An MIT-led AI that beat the world's best Stratego player while training for under $8,000, a watermark for AI-designed proteins that doesn't change how they work, and a tool that lets anyone fix the broken parts of an AI-generated 3D model before printing it, three more genuine steps forward from the 05 October edition.</p>
+        <a class="source" href="news/2026-10-05.html">See the 05 October edition →</a>
       </div>
     </div>
 
     <div class="news-foot">
-      <span>This edition: 05 October 2026</span>
+      <span>This edition: 12 October 2026</span>
       <span>Card images: generated with an AI image tool, then cropped.</span>
       <span><a href="news/index.html">Full weekly archive →</a></span>
     </div>
