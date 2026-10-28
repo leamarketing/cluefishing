@@ -1,0 +1,37 @@
+{
+  "generated_on": "2026-10-28",
+  "tool_mode": "built-in image_gen",
+  "purpose": "Conceptual topic illustrations, not photographs of the reported research, people, or clinical data.",
+  "output": {
+    "format": "WebP",
+    "width": 1280,
+    "height": 400,
+    "maximum_bytes": 153600
+  },
+  "prompts": [
+    {
+      "file": "news/images/2026-10-19-01-agent-vocabulary.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. Two small, simple wheeled laboratory research robots face each other on a clean laboratory table. Behind them, one monitor shows several groups of colored dots, with no readable words. Wide eye-level framing; both robots and the monitor remain visible in the central horizontal crop. No humanoid faces, no speech bubbles."
+    },
+    {
+      "file": "news/images/2026-10-19-02-scientist-time.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. A working scientist in a white lab coat sits at a laboratory bench using an open laptop. Beside the laptop are a realistic microscope and sample racks; a plain wall clock is visible in the background. Candid thoughtful pose, side or three-quarter view, no identifiable real person. Arrange scientist, laptop, microscope, and the clock across the central horizontal band."
+    },
+    {
+      "file": "news/images/2026-10-19-03-open-biology.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. An airy bright modern biology laboratory with a row of upright sample freezers on the left, a plausible benchtop sequencing machine in the middle, and a monitor on the right displaying a three-dimensional conceptual biological cell with membrane and nucleus. No people. Wide photographic room view; these three subjects must be clear within the central horizontal crop."
+    },
+    {
+      "file": "news/images/2026-10-26-01-fetal-mri.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. A hospital MRI control room. Foreground monitor displays a clearly illustrative grayscale prenatal fetal brain MRI cross-section, with no patient identifiers, no readable labels, and no diagnostic claim. Behind it, a large window looks into the scanner room, showing a normal cylindrical MRI scanner. No patients or staff. Wide calm clinical documentary-photo style; monitor and scanner both fit in the central horizontal band."
+    },
+    {
+      "file": "news/images/2026-10-26-02-clinician-queries.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. An adult doctor in a quiet, well-lit hospital corridor consults a tablet. A stethoscope hangs naturally around the doctor's neck. The tablet shows a generic medical information search interface with simple search bar and unreadable abstract text lines, no logos or patient information. Realistic hands and anatomy. Three-quarter view, with doctor and tablet clearly visible across the central horizontal crop."
+    },
+    {
+      "file": "news/images/2026-10-26-03-safety-prompt.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: Cluefishing AI News topic illustration, a very wide horizontal editorial photograph, intended to be cropped to 1280×400 (16:5). Compose all important subjects across the central horizontal third with generous space above and below; no cropped-off main subjects. Natural realistic lighting, restrained contemporary research/healthcare setting, high photographic detail. This is a conceptual illustration, not documentation of a real experiment or actual people. No brand logos, watermarks, headlines, readable personal data, numeric study results, or claims of an actual recorded event. A hospital workstation with a desktop monitor prominently displaying a generic conversational AI interface. At the top of the chat window is one short safety notice represented by a highlighted pale amber horizontal box; beneath are neutral abstract unreadable text lines. A clipboard and pen sit beside the keyboard. No people, no logos, no patient data, no readable advice. Eye-level wide composition with monitor, keyboard, clipboard, and pen within the central horizontal band."
+    }
+  ]
+}
