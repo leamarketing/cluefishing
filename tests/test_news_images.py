@@ -62,7 +62,7 @@ class NewsImagesTest(unittest.TestCase):
         self.assertTrue(any("must use a local image path" in error for error in self.errors()))
 
     def test_generic_sharing_card_fails(self):
-        self.change("news/2026-10-26.html", lambda text: text.replace("https://cluefishing.com/news/images/2026-10-26-01-fetal-mri.webp", "https://cluefishing.com/og.png"))
+        self.change("news/2026-10-26.html", lambda text: text.replace("https://cluefishing.com/news/images/2026-10-26-01-fetal-mri.webp", "https://cluefishing.com/og.webp"))
         self.assertTrue(any("must reference the lead story image" in error for error in self.errors()))
 
 
