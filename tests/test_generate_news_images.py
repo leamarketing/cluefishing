@@ -101,6 +101,38 @@ class GenerateNewsImagesTest(unittest.TestCase):
         self.assertTrue(clean.startswith("## This week's items"))
         self.assertIn("- [x] Story images", clean)
 
+    def test_open_pull_request_that_missed_the_open_event_is_selected(self):
+        pulls = [
+            {"number": 13, "title": "[MANGLER BILDER] AI News: 2 November 2026", "state": "OPEN"},
+            {"number": 14, "title": "Improve accessibility, page structure and metadata", "state": "OPEN"},
+            {"number": 11, "title": "[MANGLER BILDER] already merged", "state": "MERGED"},
+            {"number": True, "title": "[MANGLER BILDER] not a pull request number", "state": "OPEN"},
+        ]
+        self.assertEqual(GEN.pull_requests_waiting_for_images(pulls), [13])
+
+    def test_present_images_do_not_ask_for_another_generation(self):
+        self.assertFalse(GEN.images_still_missing(self.root, self.rows))
+
+    def test_missing_image_file_still_needs_generation(self):
+        (self.root / "news" / "images" / f"{DATE}-01-fetal-mri.webp").unlink()
+        self.assertTrue(GEN.images_still_missing(self.root, self.rows))
+
+    def test_schedule_leaves_a_finished_draft_alone(self):
+        self.assertFalse(GEN.should_mark_ready("schedule", False))
+        self.assertFalse(GEN.should_mark_ready("schedule", "false"))
+        self.assertTrue(GEN.should_mark_ready("schedule", True))
+        self.assertTrue(GEN.should_mark_ready("pull_request", "true"))
+        self.assertFalse(GEN.should_mark_ready("pull_request", False))
+        self.assertFalse(GEN.should_mark_ready("unknown", True))
+
+    def test_workflow_recovers_stuck_editions_without_merging(self):
+        text = (REPO / ".github" / "workflows" / "news-images-generate.yml").read_text(encoding="utf-8")
+        self.assertIn("schedule:", text)
+        self.assertIn("--select-waiting", text)
+        self.assertIn("--images-needed", text)
+        self.assertIn("--should-mark-ready", text)
+        self.assertNotIn("gh pr merge", text)
+
 
 if __name__ == "__main__":
     unittest.main()
