@@ -20,8 +20,10 @@ def load(name):
 
 CHECK = load("check_news_images")
 GEN = load("generate_news_images")
-DATE = "2026-10-26"
-NAMES = ["01-fetal-mri", "02-clinician-queries", "03-safety-prompt"]
+DATE = sorted(path.stem for path in (REPO / "news").glob("????-??-??.html")
+              if path.stem >= CHECK.FIRST_ILLUSTRATED_EDITION)[-1]
+NAMES = re.findall(rf'src="images/{DATE}-(\d{{2}}-[a-z0-9-]+)\.webp"',
+                   (REPO / "news" / f"{DATE}.html").read_text(encoding="utf-8"))
 BODY = "## Mangler bilder - ikke auto-merge\n\nNo tool.\n\n| Filename | Scene | EN | NO |\n| --- | --- | --- | --- |\n" + "".join(
     f'| `news/images/{DATE}-{name}.webp` | Scene {name}. | English "alt" {name}. | Norsk alt {name}. |\n' for name in NAMES
 ) + "\n## This week's items\n\n- [ ] Story images - see table above.\n"
@@ -43,7 +45,7 @@ class GenerateNewsImagesTest(unittest.TestCase):
             target = self.root / page
             text = target.read_bytes().decode("utf-8")
             text = re.sub(r'[ \t]*<img [^>]*class="news-art"[^>]*>\r?\n', "", text)
-            text = text.replace(f"https://cluefishing.com/news/images/{DATE}-01-fetal-mri.webp", "https://cluefishing.com/og.png")
+            text = text.replace(f"https://cluefishing.com/news/images/{DATE}-{NAMES[0]}.webp", "https://cluefishing.com/og.png")
             target.write_bytes(text.encode("utf-8"))
 
     def test_brief_is_parsed_in_order(self):
@@ -66,7 +68,7 @@ class GenerateNewsImagesTest(unittest.TestCase):
         self.strip_images()
         GEN.patch_pages(self.root, self.rows, DATE)
         text = (self.root / "index.html").read_text(encoding="utf-8")
-        self.assertIn("English &quot;alt&quot; 01-fetal-mri.", text)
+        self.assertIn(f"English &quot;alt&quot; {NAMES[0]}.", text)
 
     def test_previous_edition_card_stays_text_only(self):
         self.strip_images()
@@ -100,6 +102,38 @@ class GenerateNewsImagesTest(unittest.TestCase):
         clean = GEN.strip_brief(BODY)
         self.assertTrue(clean.startswith("## This week's items"))
         self.assertIn("- [x] Story images", clean)
+
+    def test_open_pull_request_that_missed_the_open_event_is_selected(self):
+        pulls = [
+            {"number": 13, "title": "[MANGLER BILDER] AI News: 2 November 2026", "state": "OPEN"},
+            {"number": 14, "title": "Improve accessibility, page structure and metadata", "state": "OPEN"},
+            {"number": 11, "title": "[MANGLER BILDER] already merged", "state": "MERGED"},
+            {"number": True, "title": "[MANGLER BILDER] not a pull request number", "state": "OPEN"},
+        ]
+        self.assertEqual(GEN.pull_requests_waiting_for_images(pulls), [13])
+
+    def test_present_images_do_not_ask_for_another_generation(self):
+        self.assertFalse(GEN.images_still_missing(self.root, self.rows))
+
+    def test_missing_image_file_still_needs_generation(self):
+        (self.root / "news" / "images" / f"{DATE}-{NAMES[0]}.webp").unlink()
+        self.assertTrue(GEN.images_still_missing(self.root, self.rows))
+
+    def test_schedule_leaves_a_finished_draft_alone(self):
+        self.assertFalse(GEN.should_mark_ready("schedule", False))
+        self.assertFalse(GEN.should_mark_ready("schedule", "false"))
+        self.assertTrue(GEN.should_mark_ready("schedule", True))
+        self.assertTrue(GEN.should_mark_ready("pull_request", "true"))
+        self.assertFalse(GEN.should_mark_ready("pull_request", False))
+        self.assertFalse(GEN.should_mark_ready("unknown", True))
+
+    def test_workflow_recovers_stuck_editions_without_merging(self):
+        text = (REPO / ".github" / "workflows" / "news-images-generate.yml").read_text(encoding="utf-8")
+        self.assertIn("schedule:", text)
+        self.assertIn("--select-waiting", text)
+        self.assertIn("--images-needed", text)
+        self.assertIn("--should-mark-ready", text)
+        self.assertNotIn("gh pr merge", text)
 
 
 if __name__ == "__main__":
