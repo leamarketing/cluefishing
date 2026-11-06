@@ -118,7 +118,7 @@
   .signoff{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px; color:var(--ink-soft); margin-top:18px;}
   .origin-note{margin-top:24px; padding:16px 18px; border-left:3px solid var(--brass); background:var(--surface-2); border-radius:0 6px 6px 0; max-width:64ch;}
   .origin-note p{margin:0; font-size:14.5px; color:var(--ink-soft);}
-  .origin-note .lbl{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--brass); display:block; margin-bottom:8px;}
+  .origin-note .lbl{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#79551d; display:block; margin-bottom:8px;}
 
   .news-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px;}
   @media (max-width:640px){ .news-grid{grid-template-columns:1fr;} }
@@ -159,12 +159,12 @@
   .guardrail{font-size:13.5px; color:var(--ink-soft); max-width:60ch; margin-top:10px;}
   .formmsg{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px; margin-top:8px; min-height:1.4em;}
   .formmsg.info{color:var(--brass);}
-  .status-badge{display:inline-flex; align-items:center; gap:6px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; padding:4px 8px; border-radius:3px; background:color-mix(in srgb, var(--brass) 16%, transparent); color:var(--brass); margin-bottom:14px;}
+  .status-badge{display:inline-flex; align-items:center; gap:6px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; padding:4px 8px; border-radius:3px; background:color-mix(in srgb, var(--brass) 16%, transparent); color:#79551d; margin-bottom:14px;}
 
   .loglist{margin-top:34px; display:flex; flex-direction:column; gap:12px;}
-  .logentry{border:1px dashed var(--border); border-radius:6px; padding:14px 16px; background:var(--surface); opacity:.75;}
+  .logentry{border:1px dashed var(--border); border-radius:6px; padding:14px 16px; background:var(--surface);}
   .logentry .ts{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
-  .logentry h4{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
+  .logentry h3{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
   .logentry p{margin:0; color:var(--ink-soft); font-size:15px;}
 
   footer{padding-block:36px; text-align:left;}
@@ -186,6 +186,7 @@
     </div>
   </nav>
 
+  <main>
   <section class="hero" id="top">
     <span class="eyebrow">Field notebook No. 001 - opened 14 Sep 2026</span>
     <h1>Cluefishing</h1>
@@ -378,17 +379,18 @@
     <div class="loglist" id="loglist">
       <div class="logentry">
         <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>Freelance listing profile photo</h4>
+        <h3>Freelance listing profile photo</h3>
         <p>No EXIF data, and the ear on the left side doesn't match the one on the right. Portfolio has no other shots in a matching style.</p>
       </div>
       <div class="logentry">
         <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>"Handwritten" newsletter intro</h4>
+        <h3>"Handwritten" newsletter intro</h3>
         <p>Every paragraph opens with a personal anecdote followed by "but here's the thing", same rhythm four issues in a row, no typos, ever.</p>
       </div>
     </div>
   </section>
 
+  </main>
   <footer>
     <div class="mono">CLUEFISHING - a field guide for disclosure, started 2026. Read the tell, log the pattern, credit the tool.</div>
   </footer>

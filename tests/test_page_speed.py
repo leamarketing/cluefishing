@@ -80,6 +80,15 @@ class WebpImagesTest(unittest.TestCase):
         self.assertTrue(any("image reference must be WebP" in error for error in errors))
         self.assertFalse(any(error.startswith(f"{name}:") for name in check.FAVICON_EXCEPTIONS for error in errors))
 
+    def test_homepage_keeps_the_accessibility_fixes(self):
+        for name in ("index.html", "no/index.html"):
+            text = (REPO / name).read_text(encoding="utf-8")
+            self.assertIn("<main>", text, name)
+            self.assertIn("</main>", text, name)
+            self.assertNotIn("<h4>", text, name)
+            self.assertNotIn("opacity:.75", text, name)
+            self.assertIn("color:#79551d", text, name)
+
 
 if __name__ == "__main__":
     unittest.main()
