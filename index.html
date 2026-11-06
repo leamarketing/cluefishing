@@ -13,13 +13,13 @@
 <meta property="og:description" content="A field guide and shared notebook for spotting undisclosed AI content, disclosing your own work honestly, and following what AI is actually getting good at.">
 <meta property="og:url" content="https://cluefishing.com/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://cluefishing.com/og.png">
+<meta property="og:image" content="https://cluefishing.com/og.webp">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="nb_NO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cluefishing - spot the tell, disclose your own">
 <meta name="twitter:description" content="A field guide and shared notebook for spotting undisclosed AI content, disclosing your own work honestly, and following what AI is actually getting good at.">
-<meta name="twitter:image" content="https://cluefishing.com/og.png">
+<meta name="twitter:image" content="https://cluefishing.com/og.webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -36,9 +36,15 @@
   }catch(e){}
 })();
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:400 700;font-display:swap;src:url("/fonts/source-serif-4-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Source Serif 4 Fallback";font-style:normal;font-weight:400 700;src:local("Liberation Serif"),local("Georgia"),local("Times New Roman"),local("Noto Serif");ascent-override:110.83%;descent-override:35.84%;line-gap-override:0%;size-adjust:93.48%;}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:700 900;font-display:swap;src:url("/fonts/big-shoulders-display-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Big Shoulders Fallback";font-style:normal;font-weight:700 900;src:local("Liberation Sans"),local("Arial");ascent-override:207.77%;descent-override:44.97%;line-gap-override:0%;size-adjust:47.36%;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/ibm-plex-mono-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"IBM Plex Mono Fallback";font-style:normal;font-weight:400;src:local("Liberation Mono"),local("Courier New");ascent-override:102.5%;descent-override:27.5%;line-gap-override:0%;size-adjust:99.98%;}
+</style>
 <style>
   :root{
     --bg:#F2F4F3; --surface:#FFFFFF; --surface-2:#E7EBE9;
@@ -66,20 +72,20 @@
   *{box-sizing:border-box;}
   body{
     margin:0; background:var(--bg); color:var(--ink);
-    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-family:"Source Serif 4", "Source Serif 4 Fallback", Georgia, "Times New Roman", serif;
     font-size:17px; line-height:1.6; padding-inline:20px;
   }
   a{color:var(--teal-strong);}
   ::selection{background:var(--brass); color:#0B1620;}
   .wrap{max-width:920px; margin-inline:auto;}
-  .mono{font-family:"IBM Plex Mono", ui-monospace, Consolas, monospace; font-variant-numeric:tabular-nums;}
-  .eyebrow{font-family:"IBM Plex Mono", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
-  h1,h2,h3{font-family:"Big Shoulders Display", "Arial Narrow", sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.01em; text-wrap:balance; margin:0; color:var(--ink);}
+  .mono{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, Consolas, monospace; font-variant-numeric:tabular-nums;}
+  .eyebrow{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
+  h1,h2,h3{font-family:"Big Shoulders Display", "Big Shoulders Fallback", "Arial Narrow", sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.01em; text-wrap:balance; margin:0; color:var(--ink);}
 
   nav{position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-block:14px; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(6px); border-bottom:1px solid var(--border);}
-  .brand{font-family:"Big Shoulders Display", sans-serif; font-weight:900; font-size:22px; letter-spacing:.02em; text-transform:uppercase; text-decoration:none; color:var(--ink); display:flex; align-items:baseline; gap:6px;}
+  .brand{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; font-weight:900; font-size:22px; letter-spacing:.02em; text-transform:uppercase; text-decoration:none; color:var(--ink); display:flex; align-items:baseline; gap:6px;}
   .brand .dot{color:var(--teal-strong);}
-  .navlinks{display:flex; gap:18px; flex-wrap:wrap; font-family:"IBM Plex Mono", monospace; font-size:13px;}
+  .navlinks{display:flex; gap:18px; flex-wrap:wrap; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px;}
   .navlinks a{color:var(--ink-soft); text-decoration:none; text-transform:uppercase; letter-spacing:.06em;}
   .navlinks a:hover{color:var(--teal-strong);}
 
@@ -90,7 +96,7 @@
   .hero h1{font-size:clamp(40px,9vw,80px); line-height:.95; margin-block:14px;}
   .hero .lede{max-width:60ch; color:var(--ink-soft); font-size:19px;}
   .ctarow{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px;}
-  .btn{font-family:"IBM Plex Mono", monospace; font-size:13px; text-transform:uppercase; letter-spacing:.06em; padding:12px 18px; border-radius:3px; text-decoration:none; border:1px solid var(--ink); color:var(--ink); display:inline-flex; align-items:center; gap:8px; background:none; cursor:pointer;}
+  .btn{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px; text-transform:uppercase; letter-spacing:.06em; padding:12px 18px; border-radius:3px; text-decoration:none; border:1px solid var(--ink); color:var(--ink); display:inline-flex; align-items:center; gap:8px; background:none; cursor:pointer;}
   .btn.primary{background:var(--ink); color:var(--bg);}
   .btn:hover{border-color:var(--teal-strong);}
   .btn.primary:hover{background:var(--teal-strong); border-color:var(--teal-strong); color:#0B1620;}
@@ -99,20 +105,20 @@
   .compare{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:40px;}
   @media (max-width:560px){ .compare{grid-template-columns:1fr;} }
   .card{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; box-shadow:var(--shadow);}
-  .card .tag{font-family:"IBM Plex Mono", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:3px; margin-bottom:12px;}
+  .card .tag{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:3px; margin-bottom:12px;}
   .tag.ok{background:color-mix(in srgb, var(--teal) 16%, transparent); color:var(--teal-strong);}
   .tag.bad{background:color-mix(in srgb, var(--rust) 16%, transparent); color:var(--rust);}
   .card p{margin:0; color:var(--ink-soft); font-size:15px;}
-  .card .caption{font-family:"IBM Plex Mono", monospace; font-size:12px; margin-top:12px; color:var(--ink-soft); border-top:1px dashed var(--border); padding-top:10px;}
+  .card .caption{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:12px; margin-top:12px; color:var(--ink-soft); border-top:1px dashed var(--border); padding-top:10px;}
 
   .section-head{display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;}
   .section-head svg{flex:none; width:56px; height:56px;}
 
   .manifesto p{max-width:64ch; font-size:17px;}
-  .signoff{font-family:"IBM Plex Mono", monospace; font-size:13px; color:var(--ink-soft); margin-top:18px;}
+  .signoff{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px; color:var(--ink-soft); margin-top:18px;}
   .origin-note{margin-top:24px; padding:16px 18px; border-left:3px solid var(--brass); background:var(--surface-2); border-radius:0 6px 6px 0; max-width:64ch;}
   .origin-note p{margin:0; font-size:14.5px; color:var(--ink-soft);}
-  .origin-note .lbl{font-family:"IBM Plex Mono", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--brass); display:block; margin-bottom:8px;}
+  .origin-note .lbl{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#79551d; display:block; margin-bottom:8px;}
 
   .news-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px;}
   @media (max-width:640px){ .news-grid{grid-template-columns:1fr;} }
@@ -120,45 +126,45 @@
   .news-art{display:block; width:calc(100% + 36px); height:auto; aspect-ratio:16/5; object-fit:cover; object-position:center; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
   .news-item h3{font-size:19px; text-transform:none; letter-spacing:0; margin-bottom:8px;}
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
-  .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
-  .news-foot{margin-top:20px; font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--ink-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  .news-item a.source{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
+  .news-foot{margin-top:20px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:12.5px; color:var(--ink-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
 
   .entry{background:var(--surface); border:1px solid var(--border); border-radius:6px; margin-top:14px; overflow:hidden;}
   .entry summary{list-style:none; cursor:pointer; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
   .entry summary::-webkit-details-marker{display:none;}
-  .entry summary .num{font-family:"IBM Plex Mono", monospace; color:var(--ink-soft); font-size:12px;}
+  .entry summary .num{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; color:var(--ink-soft); font-size:12px;}
   .entry summary h3{font-size:22px; letter-spacing:0;}
-  .entry summary .plus{font-family:"IBM Plex Mono", monospace; font-size:20px; color:var(--ink-soft);}
+  .entry summary .plus{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:20px; color:var(--ink-soft);}
   .entry[open] summary .plus{color:var(--teal-strong);}
   .entry .body{padding:0 18px 20px; color:var(--ink-soft); border-top:1px solid var(--border);}
   .entry .body p{margin-top:16px;}
   .entry .body strong{color:var(--ink);}
-  .dek{font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-soft); padding:0 18px 14px; margin-top:-8px;}
+  .dek{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:12px; color:var(--ink-soft); padding:0 18px 14px; margin-top:-8px;}
 
   .checklist{display:flex; flex-direction:column; margin-top:24px; border:1px solid var(--border); border-radius:6px; overflow:hidden; background:var(--surface);}
   .check-row{display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border-bottom:1px solid var(--border);}
   .check-row:last-child{border-bottom:none;}
   .check-row input{margin-top:4px; width:18px; height:18px; accent-color:var(--teal-strong); flex:none;}
   .check-row label{font-size:15.5px; cursor:pointer;}
-  .check-row .code{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-soft); display:block; margin-bottom:2px;}
-  .score{margin-top:16px; padding:16px 18px; border-radius:6px; font-family:"IBM Plex Mono", monospace; font-size:14px; border:1px solid var(--border); background:var(--surface-2);}
-  .score .big{font-family:"Big Shoulders Display", sans-serif; font-size:34px; font-weight:900; display:block;}
+  .check-row .code{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; color:var(--ink-soft); display:block; margin-bottom:2px;}
+  .score{margin-top:16px; padding:16px 18px; border-radius:6px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:14px; border:1px solid var(--border); background:var(--surface-2);}
+  .score .big{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; font-size:34px; font-weight:900; display:block;}
 
   .logform{display:grid; gap:12px; margin-top:24px; max-width:60ch;}
-  .logform label{font-family:"IBM Plex Mono", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block; margin-bottom:6px;}
-  .logform input, .logform textarea{width:100%; font-family:"Source Serif 4", serif; font-size:15px; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:10px 12px;}
+  .logform label{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block; margin-bottom:6px;}
+  .logform input, .logform textarea{width:100%; font-family:"Source Serif 4", "Source Serif 4 Fallback", serif; font-size:15px; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:10px 12px;}
   .logform textarea{min-height:90px; resize:vertical;}
   .logform .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
   @media (max-width:560px){ .logform .row2{grid-template-columns:1fr;} }
   .guardrail{font-size:13.5px; color:var(--ink-soft); max-width:60ch; margin-top:10px;}
-  .formmsg{font-family:"IBM Plex Mono", monospace; font-size:13px; margin-top:8px; min-height:1.4em;}
+  .formmsg{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:13px; margin-top:8px; min-height:1.4em;}
   .formmsg.info{color:var(--brass);}
-  .status-badge{display:inline-flex; align-items:center; gap:6px; font-family:"IBM Plex Mono", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; padding:4px 8px; border-radius:3px; background:color-mix(in srgb, var(--brass) 16%, transparent); color:var(--brass); margin-bottom:14px;}
+  .status-badge{display:inline-flex; align-items:center; gap:6px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; padding:4px 8px; border-radius:3px; background:color-mix(in srgb, var(--brass) 16%, transparent); color:#79551d; margin-bottom:14px;}
 
   .loglist{margin-top:34px; display:flex; flex-direction:column; gap:12px;}
-  .logentry{border:1px dashed var(--border); border-radius:6px; padding:14px 16px; background:var(--surface); opacity:.75;}
-  .logentry .ts{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
-  .logentry h4{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
+  .logentry{border:1px dashed var(--border); border-radius:6px; padding:14px 16px; background:var(--surface);}
+  .logentry .ts{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .logentry h3{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
   .logentry p{margin:0; color:var(--ink-soft); font-size:15px;}
 
   footer{padding-block:36px; text-align:left;}
@@ -180,6 +186,7 @@
     </div>
   </nav>
 
+  <main>
   <section class="hero" id="top">
     <span class="eyebrow">Field notebook No. 001 - opened 14 Sep 2026</span>
     <h1>Cluefishing</h1>
@@ -231,34 +238,34 @@
     <!-- Story items: <img class="news-art" src="news/images/YYYY-MM-DD-NN-name.webp" alt="…"> before the headline. See news/NEWS.md. -->
     <div class="news-grid">
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-26-01-fetal-mri.webp" alt="A hospital MRI control room, with a monitor showing an illustrative grayscale brain scan and an MRI scanner visible through the window." width="1280" height="400" decoding="async">
-        <h3>An MIT model uses physical symmetry to keep fetal brain scans sharp even when the baby won't stay still</h3>
-        <p>MIT researchers, working with Boston Children's Hospital and Inria, built a model called E(3)-Pose that bakes the physical symmetry of a moving fetal head directly into its architecture rather than hoping a neural network infers it from data alone. That lets it correct for motion in fetal brain MRI scans and hand radiologists a sharp, high-resolution image without calling the family back for a repeat scan.</p>
-        <a class="source" href="https://news.mit.edu/2026/teaching-ai-about-symmetry-could-make-prenatal-diagnosis-more-reliable-1019" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
+        <img class="news-art" src="news/images/2026-11-02-01-ai-for-science.webp" alt="A laptop showing a plain chat interface on a lab bench, next to a notebook and a pipette." width="1280" height="400" decoding="async" srcset="news/images/2026-11-02-01-ai-for-science-720.webp 720w, news/images/2026-11-02-01-ai-for-science.webp 1280w" sizes="(max-width: 960px) 92vw, 880px" loading="lazy">
+        <h3>Anthropic opens its AI-for-science program to 20 foundations, institutions and research groups</h3>
+        <p>Free Claude credits, which began with individual researchers, now also reach 20 foundations, institutions and research groups, including the Simons Foundation, the US National Science Foundation, the Wellcome Sanger Institute and the Francis Crick Institute. The wider program has already supported hundreds of projects in biology, medicine, physics, chemistry, climate science and mathematics.</p>
+        <a class="source" href="https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions" target="_blank" rel="noopener noreferrer">Source: anthropic.com →</a>
       </div>
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-26-02-clinician-queries.webp" alt="A doctor in a hospital corridor reading a tablet that shows a medical search screen, a stethoscope around the neck." width="1280" height="400" decoding="async">
-        <h3>A look at 270 million doctor queries shows how clinicians actually lean on AI day to day</h3>
-        <p>Researchers at Harvard Medical School, Brigham and Women's Hospital and Mass General Brigham combed through two and a half years of usage logs from OpenEvidence, the clinical AI search tool now used by roughly 950,000 US clinicians, and found doctors ask it about treatment and management decisions more than twice as often as about diagnosis.</p>
-        <a class="source" href="https://www.healthcareitnews.com/news/use-clinical-ai-treatment-planning-spikes-mgb-study-shows" target="_blank" rel="noopener noreferrer">Source: healthcareitnews.com →</a>
+        <img class="news-art" src="news/images/2026-11-02-02-genie-world-model.webp" alt="A monitor showing a detailed generated outdoor landscape, with a game controller resting on the desk beside the keyboard." width="1280" height="400" decoding="async" srcset="news/images/2026-11-02-02-genie-world-model-720.webp 720w, news/images/2026-11-02-02-genie-world-model.webp 1280w" sizes="(max-width: 960px) 92vw, 880px" loading="lazy">
+        <h3>Google DeepMind's Genie 4 generates interactive 3D worlds with real-time sound to match</h3>
+        <p>The new world model adds ambient sound, music and dialogue to the scenes it builds as you explore them, and lets you reshape a scene mid-simulation, from changing the weather to adding new objects. It is still a limited research preview, and DeepMind says keeping a scene consistent for more than a few minutes remains an open problem.</p>
+        <a class="source" href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener noreferrer">Source: deepmind.google →</a>
       </div>
       <div class="news-item">
-        <img class="news-art" src="news/images/2026-10-26-03-safety-prompt.webp" alt="A hospital workstation monitor showing a chat window with a short highlighted safety note at the top, a clipboard and pen beside the keyboard." width="1280" height="400" decoding="async">
-        <h3>A one-line safety reminder made nearly every AI model tested safer at clinical decisions</h3>
-        <p>Mount Sinai researchers tested 20 large language models across 501 variations of 50 real clinical scenarios and found that simply adding a brief safety reminder to the prompt cut the share of potentially harmful responses from 16.6% to 10.1%, an improvement that held in 19 of the 20 models.</p>
-        <a class="source" href="https://www.mountsinai.org/about/newsroom/2026/mount-sinai-study-finds-safety-prompts-can-help-ai-models-make-safer-clinical-choices" target="_blank" rel="noopener noreferrer">Source: mountsinai.org →</a>
+        <img class="news-art" src="news/images/2026-11-02-03-mistral-open-weights.webp" alt="A security analyst's desk with several monitors showing network graphs and code, lit mostly by blue screen light." width="1280" height="400" decoding="async" srcset="news/images/2026-11-02-03-mistral-open-weights-720.webp 720w, news/images/2026-11-02-03-mistral-open-weights.webp 1280w" sizes="(max-width: 960px) 92vw, 880px" loading="lazy">
+        <h3>Mistral hands over the keys to a trillion-parameter open model built for defenders</h3>
+        <p>France's Mistral released the downloadable weights for Large 4, its trillion-parameter model, positioned for defensive cybersecurity such as finding and patching vulnerabilities. In the same announcement Mistral says that, although the model refused black-box attacks on live targets, it still sees a potential for the open weights to help carry out real attacks, and it is changing the guardrails on the service it controls.</p>
+        <a class="source" href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener noreferrer">Source: mistral.ai →</a>
       </div>
       <div class="news-item">
         <h3>Last week's edition, still worth a read</h3>
-        <p>An AI agent vocabulary with no borrowed human words, a joint report finding AI gives scientists back close to a day a week, and a $1.8 billion push for open biology data, three more genuine steps forward from the 19 October edition.</p>
-        <a class="source" href="news/2026-10-19.html">See the 19 October edition →</a>
+        <p>An MIT model that keeps fetal brain MRI scans sharp despite motion, a rare look at 270 million real doctor queries to a clinical AI tool, and a one-line safety reminder that made nearly every tested model safer at clinical decisions, three more genuine steps forward from the 26 October edition.</p>
+        <a class="source" href="news/2026-10-26.html">See the 26 October edition →</a>
       </div>
     </div>
 
     <p class="mono" style="font-size:12px; color:var(--ink-soft); margin-top:14px;">Topic illustrations: generated with an AI image tool, then cropped.</p>
 
     <div class="news-foot">
-      <span>This edition: 26 October 2026</span>
+      <span>This edition: 2 November 2026</span>
       <span><a href="news/index.html">Full weekly archive →</a></span>
     </div>
   </section>
@@ -372,17 +379,18 @@
     <div class="loglist" id="loglist">
       <div class="logentry">
         <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>Freelance listing profile photo</h4>
+        <h3>Freelance listing profile photo</h3>
         <p>No EXIF data, and the ear on the left side doesn't match the one on the right. Portfolio has no other shots in a matching style.</p>
       </div>
       <div class="logentry">
         <div class="ts"><span>EXAMPLE</span><span>example</span></div>
-        <h4>"Handwritten" newsletter intro</h4>
+        <h3>"Handwritten" newsletter intro</h3>
         <p>Every paragraph opens with a personal anecdote followed by "but here's the thing", same rhythm four issues in a row, no typos, ever.</p>
       </div>
     </div>
   </section>
 
+  </main>
   <footer>
     <div class="mono">CLUEFISHING - a field guide for disclosure, started 2026. Read the tell, log the pattern, credit the tool.</div>
   </footer>
