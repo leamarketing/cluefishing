@@ -24,9 +24,15 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:400 700;font-display:swap;src:url("/fonts/source-serif-4-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Source Serif 4 Fallback";font-style:normal;font-weight:400 700;src:local("Liberation Serif"),local("Georgia"),local("Times New Roman"),local("Noto Serif");ascent-override:110.83%;descent-override:35.84%;line-gap-override:0%;size-adjust:93.48%;}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:700 900;font-display:swap;src:url("/fonts/big-shoulders-display-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Big Shoulders Fallback";font-style:normal;font-weight:700 900;src:local("Liberation Sans"),local("Arial");ascent-override:207.77%;descent-override:44.97%;line-gap-override:0%;size-adjust:47.36%;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/ibm-plex-mono-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"IBM Plex Mono Fallback";font-style:normal;font-weight:400;src:local("Liberation Mono"),local("Courier New");ascent-override:102.5%;descent-override:27.5%;line-gap-override:0%;size-adjust:99.98%;}
+</style>
 <style>
   :root{ --bg:#F2F4F3; --surface:#FFFFFF; --surface-2:#E7EBE9; --ink:#10202B; --ink-soft:#4A5B62; --teal:#0E7C7B; --teal-strong:#095F5E; --brass:#8F6423; --border:#D7DEDC; }
   @media (prefers-color-scheme: dark){
@@ -34,18 +40,18 @@
   }
   :root[data-theme="dark"]{ --bg:#0B1620; --surface:#10202B; --surface-2:#16262F; --ink:#EDF2F1; --ink-soft:#A9B8B6; --teal:#3BC0BB; --teal-strong:#63D4D0; --brass:#D9A054; --border:#22343C; }
   *{box-sizing:border-box;}
-  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Source Serif 4", Georgia, serif; font-size:17px; line-height:1.6; padding-inline:20px;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Source Serif 4", "Source Serif 4 Fallback", Georgia, serif; font-size:17px; line-height:1.6; padding-inline:20px;}
   a{color:var(--teal-strong);}
   .wrap{max-width:760px; margin-inline:auto; padding-block:48px;}
-  .eyebrow{font-family:"IBM Plex Mono", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
-  h1{font-family:"Big Shoulders Display", sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(30px,6vw,48px); margin:10px 0 6px; text-wrap:balance;}
-  .back{font-family:"IBM Plex Mono", monospace; font-size:12.5px; text-decoration:none;}
+  .eyebrow{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
+  h1{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(30px,6vw,48px); margin:10px 0 6px; text-wrap:balance;}
+  .back{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:12.5px; text-decoration:none;}
   .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; margin-top:16px; overflow:hidden;}
   .news-art{display:block; width:calc(100% + 36px); height:auto; aspect-ratio:16/5; object-fit:cover; object-position:center; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
-  .news-item h3{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:0 0 8px;}
+  .news-item h3{font-family:"Big Shoulders Display", "Big Shoulders Fallback", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:0 0 8px;}
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
-  .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
-  footer{margin-top:40px; font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-soft);}
+  .news-item a.source{font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
+  footer{margin-top:40px; font-family:"IBM Plex Mono", "IBM Plex Mono Fallback", monospace; font-size:12px; color:var(--ink-soft);}
 </style>
 </head>
 <body>
@@ -55,19 +61,19 @@
   <h1>2. november 2026</h1>
 
   <div class="news-item">
-    <img class="news-art" src="../../news/images/2026-11-02-01-ai-for-science.webp" alt="En laptop med et enkelt chat-grensesnitt på en labbbenk, ved siden av en notatbok og en pipette." width="1280" height="400" decoding="async">
+    <img class="news-art" src="../../news/images/2026-11-02-01-ai-for-science.webp" alt="En laptop med et enkelt chat-grensesnitt på en labbbenk, ved siden av en notatbok og en pipette." width="1280" height="400" decoding="async" srcset="../../news/images/2026-11-02-01-ai-for-science-720.webp 720w, ../../news/images/2026-11-02-01-ai-for-science.webp 1280w" sizes="(max-width: 960px) 92vw, 880px">
     <h3>Anthropic åpner AI-for-forskning-programmet sitt for 20 stiftelser, institusjoner og forskergrupper</h3>
     <p>Gratis Claude-kreditter, som startet hos enkeltforskere, når nå også 20 stiftelser, institusjoner og forskergrupper, blant dem Simons Foundation, det amerikanske National Science Foundation, Wellcome Sanger Institute og Francis Crick Institute. Programmet har i tillegg allerede støttet hundrevis av prosjekter innen biologi, medisin, fysikk, kjemi, klimaforskning og matematikk.</p>
     <a class="source" href="https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions" target="_blank" rel="noopener noreferrer">Kilde: anthropic.com →</a>
   </div>
   <div class="news-item">
-    <img class="news-art" src="../../news/images/2026-11-02-02-genie-world-model.webp" alt="En skjerm som viser et detaljert, generert utendørslandskap, med en spillkontroller liggende på pulten ved siden av tastaturet." width="1280" height="400" decoding="async">
+    <img class="news-art" src="../../news/images/2026-11-02-02-genie-world-model.webp" alt="En skjerm som viser et detaljert, generert utendørslandskap, med en spillkontroller liggende på pulten ved siden av tastaturet." width="1280" height="400" decoding="async" srcset="../../news/images/2026-11-02-02-genie-world-model-720.webp 720w, ../../news/images/2026-11-02-02-genie-world-model.webp 1280w" sizes="(max-width: 960px) 92vw, 880px" loading="lazy">
     <h3>Google DeepMinds Genie 4 lager interaktive 3D-verdener med lyd som følger i realtid</h3>
     <p>Den nye verdensmodellen legger bakgrunnslyd, musikk og dialog til scenene den bygger mens du utforsker dem, og du kan omforme en scene midt i simuleringen, fra å endre været til å legge til nye objekter. Det er fortsatt en begrenset forskningsforhåndsvisning, og DeepMind sier selv at det å holde en scene konsistent i mer enn noen få minutter fremdeles er et åpent problem.</p>
     <a class="source" href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener noreferrer">Kilde: deepmind.google →</a>
   </div>
   <div class="news-item">
-    <img class="news-art" src="../../news/images/2026-11-02-03-mistral-open-weights.webp" alt="En sikkerhetsanalytikers arbeidsplass med flere skjermer som viser nettverksgrafer og kode, hovedsakelig belyst av blått skjermlys." width="1280" height="400" decoding="async">
+    <img class="news-art" src="../../news/images/2026-11-02-03-mistral-open-weights.webp" alt="En sikkerhetsanalytikers arbeidsplass med flere skjermer som viser nettverksgrafer og kode, hovedsakelig belyst av blått skjermlys." width="1280" height="400" decoding="async" srcset="../../news/images/2026-11-02-03-mistral-open-weights-720.webp 720w, ../../news/images/2026-11-02-03-mistral-open-weights.webp 1280w" sizes="(max-width: 960px) 92vw, 880px" loading="lazy">
     <h3>Mistral gir fra seg nøklene til en åpen modell med tusen milliarder parametere, bygget for forsvarere</h3>
     <p>Franske Mistral har gjort vektene til Large 4 fritt nedlastbare. Det er en modell med tusen milliarder parametere, lagt til rette for defensivt sikkerhetsarbeid som å finne og lappe sårbarheter. I samme kunngjøring skriver Mistral at modellen avslo svarte-boks-angrep mot levende mål, men at de likevel ser en risiko for at de åpne vektene kan gjøre ekte angrep lettere, og at de endrer sperrene på tjenesten de selv kontrollerer.</p>
     <a class="source" href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener noreferrer">Kilde: mistral.ai →</a>
