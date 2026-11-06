@@ -43,7 +43,7 @@ class GenerateNewsImagesTest(unittest.TestCase):
             target = self.root / page
             text = target.read_bytes().decode("utf-8")
             text = re.sub(r'[ \t]*<img [^>]*class="news-art"[^>]*>\r?\n', "", text)
-            text = text.replace(f"https://cluefishing.com/news/images/{DATE}-01-fetal-mri.webp", "https://cluefishing.com/og.png")
+            text = text.replace(f"https://cluefishing.com/news/images/{DATE}-01-fetal-mri.webp", "https://cluefishing.com/og.webp")
             target.write_bytes(text.encode("utf-8"))
 
     def test_brief_is_parsed_in_order(self):
