@@ -82,7 +82,7 @@ class NewsImagesTest(unittest.TestCase):
     def test_generic_sharing_card_fails(self):
         edition = self.editions()[-1]
         lead = f"https://cluefishing.com/news/images/{self.lead_name(edition)}"
-        self.change(f"news/{edition}.html", lambda text: text.replace(lead, "https://cluefishing.com/og.png"))
+        self.change(f"news/{edition}.html", lambda text: text.replace(lead, "https://cluefishing.com/og.webp"))
         self.assertTrue(any("must reference the lead story image" in error for error in self.errors()))
 
 
