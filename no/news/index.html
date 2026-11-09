@@ -44,11 +44,20 @@
   li a{display:block; padding:14px 18px; font-family:"IBM Plex Mono", monospace; font-size:14px; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--border);}
   li:last-child a{border-bottom:none;}
   li a:hover{color:var(--teal-strong);}
+  .skip-link{position:absolute; left:12px; top:-80px; z-index:100; padding:10px 14px; background:var(--surface); color:var(--ink); border:2px solid var(--teal-strong); border-radius:4px; font-family:"IBM Plex Mono", monospace; font-size:13px;}
+  .skip-link:focus{top:12px;}
+  :focus-visible{outline:2px solid var(--teal-strong); outline-offset:2px;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Hopp til innholdet</a>
 <div class="wrap">
   <a class="back" href="../index.html">← CLUEFISHING</a>
+  <main id="main">
   <span class="eyebrow" style="display:block; margin-top:18px;">Arkiv</span>
   <h1>Alle AI-nyheter-utgaver</h1>
   <ul>
@@ -61,6 +70,7 @@
     <li><a href="2026-09-21.html">21. september 2026</a></li>
     <li><a href="2026-09-14.html">14. september 2026 - den første utgaven</a></li>
   </ul>
+  </main>
 </div>
 </body>
 </html>

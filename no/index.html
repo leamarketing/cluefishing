@@ -32,7 +32,7 @@
     --bg:#F2F4F3; --surface:#FFFFFF; --surface-2:#E7EBE9;
     --ink:#10202B; --ink-soft:#4A5B62;
     --teal:#0E7C7B; --teal-strong:#095F5E;
-    --brass:#8F6423; --rust:#B23B2E; --border:#D7DEDC;
+    --brass:#7F5818; --rust:#B23B2E; --border:#D7DEDC;
     --shadow: 0 1px 0 rgba(16,32,43,0.05);
   }
   @media (prefers-color-scheme: dark){
@@ -146,14 +146,22 @@
   .loglist{margin-top:34px; display:flex; flex-direction:column; gap:12px;}
   .logentry{border:1px dashed var(--border); border-radius:6px; padding:14px 16px; background:var(--surface); opacity:.75;}
   .logentry .ts{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
-  .logentry h4{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
+  .logentry h3{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:6px 0 4px;}
   .logentry p{margin:0; color:var(--ink-soft); font-size:15px;}
 
   footer{padding-block:36px; text-align:left;}
   footer .mono{color:var(--ink-soft); font-size:12.5px;}
+  .skip-link{position:absolute; left:12px; top:-80px; z-index:100; padding:10px 14px; background:var(--surface); color:var(--ink); border:2px solid var(--teal-strong); border-radius:4px; font-family:"IBM Plex Mono", monospace; font-size:13px;}
+  .skip-link:focus{top:12px;}
+  :focus-visible{outline:2px solid var(--teal-strong); outline-offset:2px;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Hopp til innholdet</a>
 <div class="wrap">
 
   <nav>
@@ -167,6 +175,8 @@
       <a href="../index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','en')}catch(e){}">EN</a>
     </div>
   </nav>
+
+  <main id="main">
 
   <section class="hero" id="top">
     <span class="eyebrow">Feltnotat nr. 001 - åpnet 14. sep 2026</span>
@@ -360,16 +370,18 @@
     <div class="loglist" id="loglist">
       <div class="logentry">
         <div class="ts"><span>EKSEMPEL</span><span>eksempel</span></div>
-        <h4>Frilans-oppdrag profilbilde</h4>
+        <h3>Frilans-oppdrag profilbilde</h3>
         <p>Ingen EXIF-data, og øret på venstre side matcher ikke det på høyre. Porteføljen har ingen andre bilder i samme stil.</p>
       </div>
       <div class="logentry">
         <div class="ts"><span>EKSEMPEL</span><span>eksempel</span></div>
-        <h4>"Håndskrevet" nyhetsbrev-intro</h4>
+        <h3>"Håndskrevet" nyhetsbrev-intro</h3>
         <p>Hvert avsnitt åpner med en personlig anekdote etterfulgt av "men her er greia", samme rytme fire utgaver på rad, aldri en skrivefeil.</p>
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="mono">CLUEFISHING - en feltguide for åpenhet, startet 2026. Les tegnet, logg mønsteret, krediter verktøyet.</div>

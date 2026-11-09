@@ -25,7 +25,7 @@ If an image is generated with an AI image tool, say so on the edition in the pag
 <img class="news-art" src="PATH" alt="One sentence describing what is in the photograph, in the page language." width="1280" height="400">
 ```
 
-Put that line first inside `.news-item`, before the `<h3>`.
+Put that line first inside `.news-item`, before the `<h3>`. On edition pages, add `loading="lazy" decoding="async"` to every picture after the first.
 
 | Page | PATH |
 | --- | --- |
@@ -46,5 +46,7 @@ There is no page generator. The weekly edition change has to add the tags and th
 - `og:title` and `twitter:title` match `<title>`. The descriptions match `<meta name="description">`.
 - `og:image` and `twitter:image` are the absolute URL of that edition's lead image, `https://cluefishing.com/news/images/YYYY-MM-DD-01-short-name.webp` (the `-01-` file). Only historical text-only editions before 28 September 2026 use `https://cluefishing.com/og.png`.
 - English `og:locale` is `en_GB` (alternate `nb_NO`). Norwegian `og:locale` is `nb_NO` (alternate `en_GB`). Keep `hreflang` as `en` and `no`, matching `<html lang>`.
+- Each edition's `<meta name="description">` starts with its name and date (`Cluefishing AI News, 26 October 2026:` or `Cluefishing AI-nyheter, 26. oktober 2026:`), so no two pages share a description.
+- Keep the skip link, `<main id="main">` and the hidden `<h2 class="sr-only">` from the newest edition.
 - Keep the favicon links (`/favicon.ico`, `/favicon.svg`, `/favicon-32.png`, `/apple-touch-icon.png`).
 - In `sitemap.xml`, add each language URL that exists, with `<lastmod>` set to the publication date (`YYYY-MM-DD`). Set `<lastmod>` on `https://cluefishing.com/`, `/no/`, `/news/`, and `/no/news/` to that same date. Do not list a URL that has no file.
