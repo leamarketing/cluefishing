@@ -13,13 +13,13 @@
 <meta property="og:description" content="Weekly edition of Cluefishing AI News: real, sourced developments in what AI is doing right now.">
 <meta property="og:url" content="https://cluefishing.com/news/2026-11-09.html">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://cluefishing.com/og.png">
+<meta property="og:image" content="https://cluefishing.com/news/images/2026-11-09-01-weather-forecast.webp">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="nb_NO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cluefishing AI News - 9 November 2026">
 <meta name="twitter:description" content="Weekly edition of Cluefishing AI News: real, sourced developments in what AI is doing right now.">
-<meta name="twitter:image" content="https://cluefishing.com/og.png">
+<meta name="twitter:image" content="https://cluefishing.com/news/images/2026-11-09-01-weather-forecast.webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -40,7 +40,8 @@
   .eyebrow{font-family:"IBM Plex Mono", monospace; text-transform:uppercase; letter-spacing:.12em; font-size:12px; color:var(--ink-soft);}
   h1{font-family:"Big Shoulders Display", sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(30px,6vw,48px); margin:10px 0 6px; text-wrap:balance;}
   .back{font-family:"IBM Plex Mono", monospace; font-size:12.5px; text-decoration:none;}
-  .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; margin-top:16px;}
+  .news-item{background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:18px; margin-top:16px; overflow:hidden;}
+  .news-art{display:block; width:calc(100% + 36px); height:auto; aspect-ratio:16/5; object-fit:cover; object-position:center; margin:-18px -18px 14px; background:var(--surface-2); border-bottom:1px solid var(--border);}
   .news-item h3{font-family:"Big Shoulders Display", sans-serif; text-transform:none; font-weight:700; font-size:19px; margin:0 0 8px;}
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
   .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
@@ -54,22 +55,25 @@
   <h1>9 November 2026</h1>
 
   <div class="news-item">
-    <h3>An MIT model roughly doubles how far ahead weather forecasts can see</h3>
-    <p>A team including MIT's Judah Cohen built a machine-learning layer that corrects the errors in existing forecasting models for the tricky two-to-six-week range, roughly doubling their accuracy there and, for the first time, beating long-term climatological averages in that window. It topped the field in ECMWF's AI WeatherQuest competition, and because it sits on top of any underlying forecast rather than replacing it, the gain is a real one for farmers, utilities and anyone planning around extreme weather.</p>
+    <img class="news-art" src="images/2026-11-09-01-weather-forecast.webp" alt="A weather forecaster's desk with a multi-week forecast map on a large monitor and a wall calendar in the background." width="1280" height="400" decoding="async">
+    <h3>An MIT model doubles the accuracy of two-to-six-week weather forecasts</h3>
+    <p>A team including MIT's Judah Cohen built a machine-learning layer that corrects the errors in existing forecasting models for the tricky two-to-six-week range, doubling their accuracy there and, for the first time, beating long-term climatological averages in that window. It placed first in ECMWF's forecasting competition, and because it sits on top of any underlying forecast rather than replacing it, the gain is a real one for farmers, energy planners and anyone preparing for extreme weather.</p>
     <a class="source" href="https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014" target="_blank" rel="noopener noreferrer">Source: news.mit.edu →</a>
   </div>
   <div class="news-item">
-    <h3>A chatbot that talks to patients before they see the doctor just had its first real clinical trial</h3>
-    <p>In a feasibility study published in The Lancet, 98 patients at Beth Israel Deaconess Medical Center chatted with Google's research AI, AMIE, before an urgent primary-care visit, with a physician watching every conversation in real time. No chat needed a safety stop, and AMIE's list of possible diagnoses included the doctor's eventual call nine times out of ten, though physicians still did better at turning that into a practical, affordable plan.</p>
+    <img class="news-art" src="images/2026-11-09-02-amie-chat.webp" alt="A person at home typing into a simple chat app on a phone before a doctor's visit." width="1280" height="400" decoding="async">
+    <h3>A chatbot that talks to patients before they see the doctor just had its first real clinical study</h3>
+    <p>In a real-world clinical study published in The Lancet, 98 patients at Beth Israel Deaconess Medical Center chatted with Google's research AI, AMIE, before an urgent visit to a primary-care clinic, with a physician watching every conversation in real time. No conversation had to be interrupted for safety, and AMIE's differential diagnoses matched the doctors' final diagnosis nine times out of ten. Clinicians said the AI summaries helped them prepare for the visit in 75% of cases.</p>
     <a class="source" href="https://blog.google/innovation-and-ai/technology/health/amie-clinical-study-lancet/" target="_blank" rel="noopener noreferrer">Source: blog.google →</a>
   </div>
   <div class="news-item">
+    <img class="news-art" src="images/2026-11-09-03-diagnostic-panel.webp" alt="A hospital computer screen showing several small report windows arranged side by side, a stethoscope on the desk." width="1280" height="400" decoding="async">
     <h3>Microsoft's AI "panel of doctors" outdid generalist physicians on hundreds of hard diagnostic cases</h3>
-    <p>In a peer-reviewed study in Science, Microsoft's AI Diagnostic Orchestrator worked through 304 of medicine's toughest published case reports by running several AI models as a virtual panel that proposes diagnoses and orders tests round by round. It correctly solved 83% of cases against 36% for generalist physicians who could consult references. The comparison used retrospective case write-ups rather than real patients, and Microsoft's own next step is a prospective hospital study to see if that holds up.</p>
+    <p>In a study published in Science, Microsoft's AI Diagnostic Orchestrator worked through 304 complex published case reports by coordinating several AI agents as a virtual panel that proposes diagnoses and orders tests round by round. It correctly solved 83% of cases against 36% for generalist physicians who could consult references. The comparison used retrospective case write-ups rather than real patients. Microsoft's reported next step is a clinical evaluation with Beth Israel Deaconess Medical Center on triaging patients in an emergency-department waiting room.</p>
     <a class="source" href="https://www.techrepublic.com/article/news-microsoft-ai-diagnostic-tool-doctors-clinical-tests/" target="_blank" rel="noopener noreferrer">Source: techrepublic.com →</a>
   </div>
 
-  <footer>Every edition is drafted from real, sourced reporting and reviewed by Geir before it replaces the live one. <a href="index.html">See all editions →</a></footer>
+  <footer>Every edition is drafted from real, sourced reporting and reviewed by Geir before it replaces the live one. Topic illustrations: generated with an AI image tool, then cropped. <a href="index.html">See all editions →</a></footer>
 </div>
 </body>
 </html>
