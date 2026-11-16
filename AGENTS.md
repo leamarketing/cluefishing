@@ -20,7 +20,13 @@ On every new HTML page, after the description, include the same head tags as `ne
 - Twitter card: `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image`.
 - Favicon links: `/favicon.ico`, `/favicon.svg`, `/favicon-32.png`, `/apple-touch-icon.png`.
 
-`og:title` and `twitter:title` match `<title>`. Descriptions match `<meta name="description">`. On an edition, `og:image` and `twitter:image` are the absolute URL of that edition's lead story image (`https://cluefishing.com/news/images/YYYY-MM-DD-01-….webp`). Homepages, archives, and historical text-only editions before 28 September 2026 use `https://cluefishing.com/og.png`.
+`og:title` and `twitter:title` match `<title>`. Descriptions match `<meta name="description">`. On an edition, `og:image` and `twitter:image` are the absolute URL of that edition's lead story image (`https://cluefishing.com/news/images/YYYY-MM-DD-01-….webp`). Homepages, archives, and historical text-only editions before 28 September 2026 use `https://cluefishing.com/og.webp`.
+
+## Website images
+
+Every new website image is a genuine WebP file. That includes story images, the 720px responsive candidates, and sharing cards. The file must be a WebP container (`RIFF` / `WEBP`). Renaming a PNG, JPEG, or other raster file to `.webp` does not count.
+
+The only exceptions are the favicon files browsers and home screens still require: `/favicon.ico`, `/favicon.svg`, `/favicon-32.png`, and `/apple-touch-icon.png`. Do not add a PNG copy of a WebP asset.
 
 English `og:locale` is `en_GB` and its alternate is `nb_NO`. Norwegian `og:locale` is `nb_NO` and its alternate is `en_GB`. `hreflang` stays `en` and `no`, matching `<html lang>`.
 

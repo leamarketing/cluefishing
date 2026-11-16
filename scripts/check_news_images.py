@@ -9,6 +9,14 @@ from urllib.parse import unquote, urlsplit
 
 
 FIRST_ILLUSTRATED_EDITION = "2026-09-28"
+# Browsers and home screens still require these four. Every other website image is WebP.
+FAVICON_EXCEPTIONS = {
+    "favicon.ico",
+    "favicon.svg",
+    "favicon-32.png",
+    "apple-touch-icon.png",
+}
+RASTER_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tif", ".tiff", ".avif", ".ico", ".svg"}
 MAX_BYTES = 150 * 1024
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input",
              "link", "meta", "param", "source", "track", "wbr"}
@@ -156,7 +164,38 @@ def check_site(root):
         paths = check_page(homepage, editions[-1], homepage=True)
         if paths != latest_paths:
             error(homepage, "homepage images must match the latest edition")
+    errors.extend(check_website_images(root))
     return errors, len(editions), len(checked)
+
+
+def check_website_images(root):
+    """Story, responsive, and share images must be genuine WebP containers."""
+    root = Path(root)
+    errors = []
+    skip = {".git", "__pycache__", "node_modules"}
+    for path in root.rglob("*"):
+        if not path.is_file() or any(part in skip for part in path.parts):
+            continue
+        rel = path.relative_to(root).as_posix()
+        if rel in FAVICON_EXCEPTIONS:
+            continue
+        suffix = path.suffix.lower()
+        if suffix in RASTER_SUFFIXES:
+            errors.append(f"{rel}: website image must be genuine WebP; only the four favicon files are exceptions")
+        elif suffix == ".webp":
+            try:
+                webp_size(path.read_bytes())
+            except (OSError, ValueError) as exc:
+                errors.append(f"{rel}: not a genuine WebP file: {exc}")
+    for page in root.rglob("*.html"):
+        if any(part in skip for part in page.parts):
+            continue
+        text = page.read_text(encoding="utf-8")
+        for ref in re.findall(r'(?:src|href|content)="([^"]+)"', text):
+            name = ref.split("?", 1)[0].split("#", 1)[0].rsplit("/", 1)[-1]
+            if name.lower().endswith(tuple(RASTER_SUFFIXES)) and name not in FAVICON_EXCEPTIONS:
+                errors.append(f"{page.relative_to(root)}: image reference must be WebP: {ref}")
+    return errors
 
 
 def main():
