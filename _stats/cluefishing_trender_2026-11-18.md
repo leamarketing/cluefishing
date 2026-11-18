@@ -44,7 +44,7 @@ Ingen bilder kunne genereres denne uken (ingen bildeverktøy tilgjengelig i den 
 ## Bruk i markedsføring
 
 - EUs frist 2. desember for maskinlesbar merking av eldre KI-systemer er et konkret tidsvindu: innhold og saker om "hva betyr dette for din bedrift" passer godt de neste to ukene, særlig for markedsførere og små bedrifter som bruker generative verktøy.
-- Swatting-saken fra NPR gir en varm, konstruktiv vinkel for cluefishing sitt kjernebudskap: det er ikke KI-verktøyet som er problemet, men mangel på åpenhet, og bransjen (nødsentraler) svarer med bedre verifisering, ikke frykt. Dette er en vurdering, ikke en målt påstand.
+- Swatting-saken fra NPR gir en varm, konstruktiv vinkel for cluefishing sitt kjernebudskap: problemet ligger i mangel på åpenhet, og bransjen (nødsentraler) svarer med bedre verifisering og rolig opplæring. Dette er en vurdering, ikke en målt påstand.
 - Apple/OpenEvidence-studien kan brukes til å snakke varmt om tillitsbygging i helse-KI: en stor, åpent beskrevet studie er et godt eksempel på at åpenhet om data og bruk er mulig i praksis. Treffer særlig lesere som er nysgjerrige på KI til egen helse.
 - Norges KI-lov er forsinket til høringsrunde i høst med sikte på Stortinget våren 2027: en gruppe å følge er norske bedrifter som allerede må forholde seg til EU-regelverket når KI-systemene deres brukes i EU-markedet, selv uten egen norsk lov enda.
 - Vurdering, ikke måling: EUs artikkel 50-frister skaper en jevn strøm av forklarende innhold fra advokatfirmaer og compliance-aktører denne høsten, noe som gjør at cluefishing sin vinkel ("du trenger ikke være ekspert, bare åpen") kan skille seg ut fra den tyngre juridiske tonen andre bruker.
