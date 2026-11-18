@@ -26,6 +26,6 @@ English `og:locale` is `en_GB` and its alternate is `nb_NO`. Norwegian `og:local
 
 In `sitemap.xml`, add each language URL that exists and set `<lastmod>` to the publication date (`YYYY-MM-DD`). Set `<lastmod>` on `/`, `/no/`, `/news/`, and `/no/news/` to that same date. Do not list a URL that has no file.
 
-## Weekly theme radar and statistics
+## Theme radar and statistics
 
-Each weekly edition starts with a short web-search analysis of what is moving on the site's own theme (AI-content disclosure, labelling and provenance, deepfakes, rules for AI content, undisclosed AI use, Norway's status). Stories are picked from that analysis: at least two of three on the site's theme, the rest may be a genuine AI-progress story as before. The edition PR also adds `_stats/data/YYYY-MM-DD.csv` and `_stats/cluefishing_trender_YYYY-MM-DD.md`. Format and categories are in `_stats/README.md`. `_stats/` is not served by GitHub Pages.
+Editions come out Monday, Wednesday and Friday mornings (Norwegian time). Each edition starts with a short web-search analysis of what is moving on the site's own theme (AI-content disclosure, labelling and provenance, deepfakes, rules for AI content, undisclosed AI use, Norway's status). Stories are picked from that analysis: at least two of three on the site's theme, the rest may be a genuine AI-progress story as before. The edition PR also adds `_stats/data/YYYY-MM-DD.csv` and `_stats/cluefishing_trender_YYYY-MM-DD.md`. Format and categories are in `_stats/README.md`. `_stats/` is not served by GitHub Pages.
