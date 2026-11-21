@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cluefishing - avslør ubevisst AI-bruk, vær åpen om din egen</title>
+<title>Cluefishing - avslør udeklarert KI-bruk, vær åpen om din egen</title>
 <meta name="description" content="En feltguide og delt notatbok for å oppdage AI-innhold som ikke er merket, være åpen om ditt eget arbeid, og følge ekte AI-nyheter hver uke.">
 <link rel="canonical" href="https://cluefishing.com/no/">
 <link rel="alternate" hreflang="en" href="https://cluefishing.com/">
 <link rel="alternate" hreflang="no" href="https://cluefishing.com/no/">
 <link rel="alternate" hreflang="x-default" href="https://cluefishing.com/">
-<meta property="og:title" content="Cluefishing - avslør ubevisst AI-bruk, vær åpen om din egen">
+<meta property="og:title" content="Cluefishing - avslør udeklarert KI-bruk, vær åpen om din egen">
 <meta property="og:description" content="En feltguide og delt notatbok for å oppdage AI-innhold som ikke er merket, være åpen om ditt eget arbeid, og følge ekte AI-nyheter hver uke.">
 <meta property="og:url" content="https://cluefishing.com/no/">
 <meta property="og:type" content="website">
@@ -17,13 +17,14 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:locale:alternate" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cluefishing - avslør ubevisst AI-bruk, vær åpen om din egen">
+<meta name="twitter:title" content="Cluefishing - avslør udeklarert KI-bruk, vær åpen om din egen">
 <meta name="twitter:description" content="En feltguide og delt notatbok for å oppdage AI-innhold som ikke er merket, være åpen om ditt eget arbeid, og følge ekte AI-nyheter hver uke.">
 <meta name="twitter:image" content="https://cluefishing.com/og.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="describedby" href="/llms.txt" type="text/markdown">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -81,7 +82,7 @@
   .btn{font-family:"IBM Plex Mono", monospace; font-size:13px; text-transform:uppercase; letter-spacing:.06em; padding:12px 18px; border-radius:3px; text-decoration:none; border:1px solid var(--ink); color:var(--ink); display:inline-flex; align-items:center; gap:8px; background:none; cursor:pointer;}
   .btn.primary{background:var(--ink); color:var(--bg);}
   .btn:hover{border-color:var(--teal-strong);}
-  .btn.primary:hover{background:var(--teal-strong); border-color:var(--teal-strong); color:#0B1620;}
+  .btn.primary:hover{background:var(--teal-strong); border-color:var(--teal-strong); color:var(--bg);}
   .btn[disabled]{opacity:.5; cursor:not-allowed;}
 
   .compare{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:40px;}
@@ -372,6 +373,7 @@
 
   <footer>
     <div class="mono">CLUEFISHING - en feltguide for åpenhet, startet 2026. Les tegnet, logg mønsteret, krediter verktøyet.</div>
+    <div class="mono"><a href="om.html">Om siden, kontakt og personvern</a> · AI-nyhetene blir funnet fram og skrevet av en KI-assistent (Claude) og godkjent av Geir Amdal før de publiseres.</div>
   </footer>
 
 </div>
@@ -388,9 +390,9 @@
   ];
   var list = document.getElementById("checklist");
   var scoreBox = document.getElementById("score");
-  var STORE_KEY = "cluefishing_tacklebox_v1";
+  var STORAGE_NAME = "cluefishing_tacklebox_v1";
   var state = {};
-  try { state = JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch(e) { state = {}; }
+  try { state = JSON.parse(localStorage.getItem(STORAGE_NAME) || "{}"); } catch(e) { state = {}; }
 
   items.forEach(function(it){
     var row = document.createElement("div");
@@ -412,12 +414,13 @@
   list.addEventListener("change", function(e){
     if (e.target && e.target.type === "checkbox"){
       state[e.target.id] = e.target.checked;
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(err) {}
+      try { localStorage.setItem(STORAGE_NAME, JSON.stringify(state)); } catch(err) {}
       render();
     }
   });
   render();
 })();
 </script>
+<script src="../webmcp.js" defer></script>
 </body>
 </html>

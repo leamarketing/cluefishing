@@ -1,0 +1,24 @@
+# Cluefishing
+
+> Cluefishing is a bilingual (English and Norwegian) field guide for spotting undisclosed AI content and for disclosing your own AI use honestly. It also publishes AI News: short, sourced editions about real AI developments, with a focus on labelling, provenance, deepfakes and the rules for AI content.
+
+AI News editions are researched and drafted by an AI assistant (Claude) from the linked sources and approved by Geir Amdal before they go live. Story pictures are generated with an AI image tool. Every story links to its original source; cite that source, not this site, for the facts.
+
+Pages that support WebMCP register read-only tools for agents: list_ai_news_editions, get_ai_news_edition, get_disclosure_checklist and get_site_info.
+
+## Main pages
+
+- [Home (English)](https://cluefishing.com/): manifesto, field guide, disclosure checklist and the newest AI News stories
+- [Hjem (norsk)](https://cluefishing.com/no/): the same site in Norwegian
+- [AI News archive](https://cluefishing.com/news/): every English edition, newest first
+- [AI-nyheter, arkiv](https://cluefishing.com/no/news/): every Norwegian edition, newest first
+
+## About
+
+- [About, contact and privacy](https://cluefishing.com/about.html): who runs the site, how AI is used, contact and privacy
+- [Om siden, kontakt og personvern](https://cluefishing.com/no/om.html): the same in Norwegian
+
+## Optional
+
+- [Sitemap](https://cluefishing.com/sitemap.xml): every page with its publication date
+- [Source code](https://github.com/leamarketing/cluefishing): the public repository for the site
