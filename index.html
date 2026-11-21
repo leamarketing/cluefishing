@@ -24,13 +24,13 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="describedby" href="/llms.txt" type="text/markdown">
 <script>
 (function(){
   try{
     if (localStorage.getItem('cf_lang_choice')) return;
     var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
     if (lang.indexOf('no') === 0 || lang.indexOf('nb') === 0 || lang.indexOf('nn') === 0){
-      localStorage.setItem('cf_lang_choice','no');
       location.replace('no/index.html');
     }
   }catch(e){}
@@ -93,7 +93,7 @@
   .btn{font-family:"IBM Plex Mono", monospace; font-size:13px; text-transform:uppercase; letter-spacing:.06em; padding:12px 18px; border-radius:3px; text-decoration:none; border:1px solid var(--ink); color:var(--ink); display:inline-flex; align-items:center; gap:8px; background:none; cursor:pointer;}
   .btn.primary{background:var(--ink); color:var(--bg);}
   .btn:hover{border-color:var(--teal-strong);}
-  .btn.primary:hover{background:var(--teal-strong); border-color:var(--teal-strong); color:#0B1620;}
+  .btn.primary:hover{background:var(--teal-strong); border-color:var(--teal-strong); color:var(--bg);}
   .btn[disabled]{opacity:.5; cursor:not-allowed;}
 
   .compare{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:40px;}
@@ -176,7 +176,7 @@
       <a href="#guide">Field Guide</a>
       <a href="#tacklebox">Tackle Box</a>
       <a href="#log">The Log</a>
-      <a href="no/index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','en')}catch(e){}">NO</a>
+      <a href="no/index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','no')}catch(e){}">NO</a>
     </div>
   </nav>
 
@@ -384,6 +384,7 @@
 
   <footer>
     <div class="mono">CLUEFISHING - a field guide for disclosure, started 2026. Read the tell, log the pattern, credit the tool.</div>
+    <div class="mono"><a href="about.html">About, contact and privacy</a> · AI News is researched and drafted by an AI assistant (Claude) and approved by Geir Amdal before it goes live.</div>
   </footer>
 
 </div>
@@ -400,9 +401,9 @@
   ];
   var list = document.getElementById("checklist");
   var scoreBox = document.getElementById("score");
-  var STORE_KEY = "cluefishing_tacklebox_v1";
+  var STORAGE_NAME = "cluefishing_tacklebox_v1";
   var state = {};
-  try { state = JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch(e) { state = {}; }
+  try { state = JSON.parse(localStorage.getItem(STORAGE_NAME) || "{}"); } catch(e) { state = {}; }
 
   items.forEach(function(it){
     var row = document.createElement("div");
@@ -424,12 +425,13 @@
   list.addEventListener("change", function(e){
     if (e.target && e.target.type === "checkbox"){
       state[e.target.id] = e.target.checked;
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(err) {}
+      try { localStorage.setItem(STORAGE_NAME, JSON.stringify(state)); } catch(err) {}
       render();
     }
   });
   render();
 })();
 </script>
+<script src="webmcp.js" defer></script>
 </body>
 </html>
