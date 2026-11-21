@@ -1,0 +1,17 @@
+dato,maling,kategori,antall,merknad
+2026-11-20,radar_anslag,merking_herkomst,4,"google annonsemerking,meta altman video,synthid c2pa adopsjon,eu artikkel 50 veiledning"
+2026-11-20,radar_anslag,deepfakes,4,"nvidia huang falske videoer,stemmekloning swatting,suno elvis act sak,ukentlig deepfake liste"
+2026-11-20,radar_anslag,regulering,3,"eu digital omnibus frist,pennsylvania annonselov,eu praksiskodeks"
+2026-11-20,radar_anslag,misbruk_udeklarert,3,"journalistikk bylines tracker,udeklarerte ai influencere,politisk annonse brudd"
+2026-11-20,radar_anslag,norge,1,"ki-loven status oktober"
+2026-11-20,radar_anslag,sikkerhet,1,"stemmekloning i swatting"
+2026-11-20,radar_anslag,helse,0,
+2026-11-20,radar_anslag,biologi,0,
+2026-11-20,radar_anslag,forskning,5,"stanford noeri,memorilla,hoffman-yee stipend,mit kopilot strukturdesign,fed ai konferanse"
+2026-11-20,radar_anslag,modeller_verktoy,2,"gemini for science,stanford bvsr rammeverk"
+2026-11-20,publisert,merking_herkomst,1,"google annonsemerking california sor-korea vietnam"
+2026-11-20,publisert,deepfakes,1,"nvidia jensen huang kinesiske falske videoer"
+2026-11-20,publisert,forskning,1,"mit ai-kopilot strukturdesign"
+2026-11-20,kilde,support.google.com,1,"google annonsemerking"
+2026-11-20,kilde,washingtontimes.com,1,"nvidia deepfake sak"
+2026-11-20,kilde,news.mit.edu,1,"mit strukturdesign kopilot"
