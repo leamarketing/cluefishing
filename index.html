@@ -31,7 +31,6 @@
     if (localStorage.getItem('cf_lang_choice')) return;
     var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
     if (lang.indexOf('no') === 0 || lang.indexOf('nb') === 0 || lang.indexOf('nn') === 0){
-      localStorage.setItem('cf_lang_choice','no');
       location.replace('no/index.html');
     }
   }catch(e){}
@@ -177,7 +176,7 @@
       <a href="#guide">Field Guide</a>
       <a href="#tacklebox">Tackle Box</a>
       <a href="#log">The Log</a>
-      <a href="no/index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','en')}catch(e){}">NO</a>
+      <a href="no/index.html" id="lang-switch" onclick="try{localStorage.setItem('cf_lang_choice','no')}catch(e){}">NO</a>
     </div>
   </nav>
 
