@@ -3,11 +3,16 @@ name: News image generation
 on:
   pull_request:
     types: [opened, reopened]
+  schedule:
+    # Weekday morning, after a Monday edition is usually opened. An edition
+    # whose open event never ran this workflow would otherwise stay without
+    # images and without another attempt.
+    - cron: "30 9 * * 1-5"
   workflow_dispatch:
     inputs:
       pr:
         description: Pull request number
-        required: true
+        required: false
 
 permissions:
   contents: write
@@ -15,66 +20,95 @@ permissions:
   actions: write
 
 concurrency:
-  group: news-image-generation-${{ github.event.pull_request.number || inputs.pr }}
+  group: news-image-generation-${{ github.event.pull_request.number || inputs.pr || 'pending' }}
 
 jobs:
   generate:
     if: >-
+      github.event_name == 'schedule' ||
       github.event_name == 'workflow_dispatch' ||
       (contains(github.event.pull_request.title, '[MANGLER BILDER]') &&
        github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       GH_TOKEN: ${{ github.token }}
-      PR: ${{ github.event.pull_request.number || inputs.pr }}
+      EVENT_NAME: ${{ github.event_name }}
     steps:
-      - name: Read the pull request
-        id: pr
-        run: |
-          gh pr view "$PR" -R "$GITHUB_REPOSITORY" --json title,body,headRefName,isCrossRepository > "$RUNNER_TEMP/pr.json"
-          jq -e '.isCrossRepository == false' "$RUNNER_TEMP/pr.json" > /dev/null
-          jq -e '.title | contains("[MANGLER BILDER]")' "$RUNNER_TEMP/pr.json" > /dev/null
-          jq -r .body "$RUNNER_TEMP/pr.json" > "$RUNNER_TEMP/body.md"
-          echo "branch=$(jq -r .headRefName "$RUNNER_TEMP/pr.json")" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ steps.pr.outputs.branch }}
       - name: Install the image library
         run: python3 -m pip install --quiet "pillow==11.3.0"
-      - name: Generate images and add them to the pages
+      - name: Choose the pull requests
+        id: prs
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            echo "${{ github.event.pull_request.number }}" > "$RUNNER_TEMP/prs.txt"
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ] && [ -n "${{ inputs.pr }}" ]; then
+            case "${{ inputs.pr }}" in
+              ''|*[!0-9]*) echo "Pull request number must be digits." >&2; exit 1 ;;
+            esac
+            echo "${{ inputs.pr }}" > "$RUNNER_TEMP/prs.txt"
+          else
+            gh pr list -R "$GITHUB_REPOSITORY" --state open --limit 30 --json number,title,state \
+              > "$RUNNER_TEMP/prs.json"
+            python3 scripts/generate_news_images.py --select-waiting < "$RUNNER_TEMP/prs.json" > "$RUNNER_TEMP/prs.txt"
+          fi
+          if [ -s "$RUNNER_TEMP/prs.txt" ]; then
+            echo "none=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "none=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Generate any images that are still missing
+        if: steps.prs.outputs.none != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_IMAGE_MODEL: ${{ vars.OPENAI_IMAGE_MODEL }}
         run: |
+          set -euo pipefail
           # Always the script on main: a branch opened earlier may not have it.
           git fetch --quiet --depth=1 origin main
           git show origin/main:scripts/generate_news_images.py > "$RUNNER_TEMP/generate_news_images.py"
-          python3 "$RUNNER_TEMP/generate_news_images.py" --root . --body-file "$RUNNER_TEMP/body.md" --clean-body "$RUNNER_TEMP/clean.md"
-      - name: Check article and homepage images
-        run: python3 scripts/check_news_images.py
-      - name: Check that incomplete editions are rejected
-        run: python3 -m unittest discover -s tests
-      - name: Commit the images
-        env:
-          BRANCH: ${{ steps.pr.outputs.branch }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add news/images index.html no/index.html news no/news
-          git commit -m "Add generated story images"
-          git push origin "HEAD:refs/heads/$BRANCH"
-      - name: Mark the pull request ready
-        env:
-          BRANCH: ${{ steps.pr.outputs.branch }}
-        run: |
-          title="$(jq -r .title "$RUNNER_TEMP/pr.json" | sed 's/\[MANGLER BILDER\] *//')"
-          gh pr edit "$PR" -R "$GITHUB_REPOSITORY" --title "$title" --body-file "$RUNNER_TEMP/clean.md"
-          gh pr ready "$PR" -R "$GITHUB_REPOSITORY"
-          # A push made with this token does not start other workflows, so ask for the check.
-          gh workflow run news-images.yml -R "$GITHUB_REPOSITORY" --ref "$BRANCH"
-          gh pr comment "$PR" -R "$GITHUB_REPOSITORY" --body "Bildene er laget og lagt inn, og bildesjekken passerte. Ingen mennesker har sett dem ennå. Se dem under Files changed før publisering, og se etter tulletekst, feil antall fingre og andre AI-feil. Skriv en stopp-kommentar hvis noe må rettes."
-      - name: Report a failure on the pull request
-        if: failure()
-        run: |
-          gh pr comment "$PR" -R "$GITHUB_REPOSITORY" --body "Bildejobben feilet, så PR-en står fortsatt uten bilder og publiseres ikke. Logg: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fail() {
+            gh pr comment "$1" -R "$GITHUB_REPOSITORY" --body "Bildejobben feilet, så PR-en står fortsatt uten bilder og publiseres ikke. Logg: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            exit 1
+          }
+          while read -r PR; do
+            [ -n "$PR" ] || continue
+            gh pr view "$PR" -R "$GITHUB_REPOSITORY" --json title,body,headRefName,isCrossRepository > "$RUNNER_TEMP/pr.json"
+            jq -e '.isCrossRepository == false' "$RUNNER_TEMP/pr.json" >/dev/null
+            jq -e '.title | contains("[MANGLER BILDER]")' "$RUNNER_TEMP/pr.json" >/dev/null
+            jq -r .body "$RUNNER_TEMP/pr.json" > "$RUNNER_TEMP/body.md"
+            branch="$(jq -r .headRefName "$RUNNER_TEMP/pr.json")"
+            git fetch --quiet --depth=1 origin "$branch"
+            git checkout --force "origin/$branch"
+            if ! state="$(python3 "$RUNNER_TEMP/generate_news_images.py" --root . --body-file "$RUNNER_TEMP/body.md" --images-needed)"; then
+              fail "$PR"
+            fi
+            generated=false
+            if [ "$state" = "needed" ]; then
+              if ! python3 "$RUNNER_TEMP/generate_news_images.py" --root . --body-file "$RUNNER_TEMP/body.md" --clean-body "$RUNNER_TEMP/clean.md"; then
+                fail "$PR"
+              fi
+              if ! python3 scripts/check_news_images.py || ! python3 -m unittest discover -s tests; then
+                fail "$PR"
+              fi
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add news/images index.html no/index.html news no/news
+              git commit -m "Add generated story images"
+              git push origin "HEAD:refs/heads/$branch"
+              generated=true
+            elif [ "$state" != "ready" ]; then
+              fail "$PR"
+            fi
+            mark="$(python3 "$RUNNER_TEMP/generate_news_images.py" --should-mark-ready "$EVENT_NAME" "$generated")"
+            if [ "$mark" = "yes" ]; then
+              title="$(jq -r .title "$RUNNER_TEMP/pr.json" | sed 's/\[MANGLER BILDER\] *//')"
+              gh pr edit "$PR" -R "$GITHUB_REPOSITORY" --title "$title" --body-file "$RUNNER_TEMP/clean.md"
+              gh pr ready "$PR" -R "$GITHUB_REPOSITORY"
+              # A push made with this token does not start other workflows, so ask for the check.
+              gh workflow run news-images.yml -R "$GITHUB_REPOSITORY" --ref "$branch"
+              gh pr comment "$PR" -R "$GITHUB_REPOSITORY" --body "Bildene er laget og lagt inn, og bildesjekken passerte. Ingen mennesker har sett dem ennå. Se dem under Files changed før publisering, og se etter tulletekst, feil antall fingre og andre AI-feil. Skriv en stopp-kommentar hvis noe må rettes."
+            fi
+          done < "$RUNNER_TEMP/prs.txt"

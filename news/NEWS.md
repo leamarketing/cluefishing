@@ -17,6 +17,8 @@ If the session cannot generate the required images, leave the PR in draft and re
 
 The `News image generation` workflow fills that gap. When a PR titled `[MANGLER BILDER]` opens, it reads the image table in the description (filename, scene, EN alt, NO alt), generates each picture once with the `OPENAI_API_KEY` repository secret, adds the images to the four pages, runs both checks, pushes to the same branch, removes the missing-images section and marks the PR ready. It never merges. To run it on an existing PR, start the workflow by hand with the PR number. The optional `OPENAI_IMAGE_MODEL` repository variable overrides the default model.
 
+A weekday morning schedule does the same search for open `[MANGLER BILDER]` pull requests. That covers an edition whose open event never ran this workflow, which is what left the 2 November 2026 draft sitting with no images and no retry. If the image files are still missing, the schedule generates them, pushes, and then marks that PR ready. If the files are already in place, it does nothing and leaves the draft hold as it is. It still never merges.
+
 Save original images in `news/images/` as `YYYY-MM-DD-01-short-name.webp`, then `-02-` and `-03-`. Use a wide landscape band, about 1280×400 (16:5). Photographic or photo-like pictures are the default: a real scene, object, or interface that belongs to the story. Do not use abstract SVG icons or decorative diagrams. No stock-photo hosts and no external image hosts. Keep each file under about 150KB.
 
 If an image is generated with an AI image tool, say so on the edition in the page language, in the same plain style as the rest of the site: "generated with an AI image tool, then cropped" (Norwegian: "generert med et AI-billedverktøy, og deretter beskåret").
