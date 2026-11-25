@@ -46,13 +46,24 @@
   .news-item p{margin:0; color:var(--ink-soft); font-size:15px;}
   .news-item a.source{font-family:"IBM Plex Mono", monospace; font-size:11.5px; display:inline-block; margin-top:10px;}
   footer{margin-top:40px; font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-soft);}
+  .skip-link{position:absolute; left:12px; top:-80px; z-index:100; padding:10px 14px; background:var(--surface); color:var(--ink); border:2px solid var(--teal-strong); border-radius:4px; font-family:"IBM Plex Mono", monospace; font-size:13px;}
+  .skip-link:focus{top:12px;}
+  :focus-visible{outline:2px solid var(--teal-strong); outline-offset:2px;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Hopp til innholdet</a>
 <div class="wrap">
   <a class="back" href="../index.html">← CLUEFISHING</a>
+  <main id="main">
   <span class="eyebrow" style="display:block; margin-top:18px;">AI-nyheter - ukentlig utgave</span>
   <h1>16. november 2026</h1>
+
+  <h2 class="sr-only">Saker i denne utgaven</h2>
 
   <div class="news-item">
     <img class="news-art" src="../../news/images/2026-11-16-01-robot-memory.webp" alt="En robotarm som stopper opp mellom en vegghengt hjertestarter og et brannslukningsapparat, som om den dobbeltsjekker hvilket som er hvilket." width="1280" height="400">
@@ -72,6 +83,8 @@
     <p>Google Research og Google DeepMind har lansert Language Explorer, en åpen plattform bygget på datasettet LinguaMeta fra 1000 Languages Initiative. Der kan hvem som helst søke blant rundt 7000 språk og 159 skriftsystemer, sortert på navn, region, antall talere eller hvor utrydningsutsatt språket er. Verktøyet vises også på Museum für Kommunikation i Berlin: en fin påminnelse om at AI kan hjelpe med å dokumentere og holde menneskelige språk synlige i stedet for å flate dem ut.</p>
     <a class="source" href="https://research.google/blog/exploring-the-worlds-languages-with-language-explorer" target="_blank" rel="noopener noreferrer">Kilde: research.google →</a>
   </div>
+
+  </main>
 
   <footer>Hver utgave er funnet fram og skrevet av en KI-assistent (Claude) ut fra kildene det lenkes til, og publiseres først når Geir Amdal har godkjent den. <a href="../om.html">Om siden og personvern</a>. Tematiske illustrasjoner: generert med et AI-billedverktøy, og deretter beskåret. <a href="index.html">Se alle utgaver →</a></footer>
 </div>
