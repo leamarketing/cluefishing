@@ -191,11 +191,16 @@ def main():
     with open(mdf, "w", encoding="utf-8") as f:
         f.write("\n".join(md) + "\n")
 
+    linjer = []
     for kat, n in per_kat.most_common():
         if kat == "annet":
             continue
         merk = "; ".join(eksempler[kat][:3]).replace('"', "'")
-        print('%s,sok_trend,%s,%d,"%s"' % (dato, kat, n, merk))
+        linjer.append('%s,sok_trend,%s,%d,"%s"' % (dato, kat, n, merk))
+    # The same rows in a file, so a run that cannot reach the search engines can copy them.
+    with open(os.path.join(ROT, "_stats", "data", "%s-sok-rader.csv" % dato), "w", encoding="utf-8") as f:
+        f.write("\n".join(linjer) + "\n")
+    print("\n".join(linjer))
     print("# %d ulike søkeforslag, %d overskrifter, %d oppslag, feil: %s" % (len(forslag), len(nyh), oppslag, feiltekst), file=sys.stderr)
 
 

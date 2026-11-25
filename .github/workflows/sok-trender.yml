@@ -1,0 +1,49 @@
+name: Search trends (sok_trender)
+
+# The news routine runs in a sandbox that cannot reach the search engines, so GitHub fetches the
+# search suggestions shortly before it and stores them on the stats/sok-data branch (never on main).
+# The routine reads them from there. Runs 04:30 UTC Monday, Wednesday and Friday (routine: 05:07 UTC).
+
+on:
+  schedule:
+    - cron: "30 4 * * 1,3,5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sok-trender
+  cancel-in-progress: false
+
+jobs:
+  sok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Fetch search suggestions
+        run: |
+          D=$(date -u +%F)
+          echo "D=$D" >> "$GITHUB_ENV"
+          python3 scripts/sok_trender.py "$D" || echo "sok_trender exited with $? (summary says why)"
+          mkdir -p /tmp/sok
+          cp _stats/data/"$D"-sok* /tmp/sok/
+          ls -l /tmp/sok
+      - name: Store on stats/sok-data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clean -fdxq
+          if git fetch -q origin stats/sok-data; then
+            git checkout -q -B stats/sok-data FETCH_HEAD
+          else
+            git checkout -q --orphan stats/sok-data
+            git rm -rfq .
+            printf '# stats/sok-data\n\nSearch suggestions written by .github/workflows/sok-trender.yml. Read by the news routine. Never merged into main.\n' > README.md
+          fi
+          mkdir -p _stats/data
+          cp /tmp/sok/* _stats/data/
+          git add -A
+          git commit -qm "Search trends $D" || { echo "nothing new"; exit 0; }
+          git push -q origin stats/sok-data
