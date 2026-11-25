@@ -100,16 +100,28 @@ def main():
     dato = sys.argv[1] if len(sys.argv) > 1 else datetime.date.today().isoformat()
     rader, oppslag, feil = [], 0, Counter()
     sett = set()
+    # A source that has never answered and has failed 4 times is skipped for the rest of the run,
+    # so a blocked search engine costs about a minute instead of stalling the routine.
+    svar, sperret = Counter(), set()
+
+    def gi_opp(kilde):
+        if not svar[kilde] and feil[kilde] >= 4:
+            sperret.add(kilde)
+
     for kode, L in LAND.items():
         for sok in L["sok"]:
             for forledd in L["forledd"]:
                 q = forledd + sok
                 for kilde, fn in (("google", google), ("bing", bing)):
+                    if kilde in sperret:
+                        continue
                     oppslag += 1
                     try:
                         forslag = fn(q, L)
-                    except Exception as e:
+                        svar[kilde] += 1
+                    except Exception:
                         feil[kilde] += 1
+                        gi_opp(kilde)
                         continue
                     for f in forslag:
                         nok = (kode, f.strip().lower())
@@ -119,9 +131,13 @@ def main():
                         rader.append({"dato": dato, "land": L["navn"], "kilde": kilde, "sok": q, "funn": f.strip(),
                                       "kategori": kategori(f), "nyhetsdato": ""})
                     time.sleep(0.15)
+            if "nyheter" in sperret:
+                continue
             oppslag += 1
             try:
-                for tittel, nd in nyheter(sok, L):
+                treff = nyheter(sok, L)
+                svar["nyheter"] += 1
+                for tittel, nd in treff:
                     nok = (kode, "nyhet", tittel.lower())
                     if nok in sett:
                         continue
@@ -130,11 +146,14 @@ def main():
                                   "kategori": kategori(sok + " " + tittel), "nyhetsdato": nd})
             except Exception:
                 feil["nyheter"] += 1
+                gi_opp("nyheter")
 
     os.makedirs(os.path.join(ROT, "_stats", "data"), exist_ok=True)
     csvf = os.path.join(ROT, "_stats", "data", "%s-sok.csv" % dato)
     mdf = os.path.join(ROT, "_stats", "data", "%s-sok-sammendrag.md" % dato)
     feiltekst = ", ".join("%s %d" % kv for kv in sorted(feil.items())) or "ingen"
+    if sperret:
+        feiltekst += "; ga opp: %s (svarte aldri)" % ", ".join(sorted(sperret))
 
     if not rader:
         with open(mdf, "w", encoding="utf-8") as f:
